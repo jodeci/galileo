@@ -10,5 +10,9 @@ nav.navbar.navbar-inverse.navbar-fixed-top
     div.collapse.navbar-collapse
       ul.nav.navbar-nav
       ul.nav.navbar-nav.navbar-right
-        = render "layouts/dashboard/dropdown_account"
+        li.dropdown
+          = dropdown_title "Account"
+          ul.dropdown-menu
+            li = link_to "Edit account", edit_user_registration_path
+            li = link_to "Sign out", destroy_user_session_path, method: :delete
         li = link_to "View Site", root_path
