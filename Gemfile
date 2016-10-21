@@ -8,6 +8,7 @@ gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.2"
 
 gem "jquery-rails"
+gem "turbolinks", "~> 5.x"
 gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass"
 gem "slim"
@@ -15,11 +16,15 @@ gem "simple_form"
 gem "kaminari"
 gem "stateful_enum"
 
+gem "devise"
+gem "cancancan"
+
 group :development, :test do
   gem "byebug", platform: :mri
 end
 
 group :development do
+  gem "rails_layout"
   gem "web-console"
   gem "listen", "~> 3.0.5"
   gem "spring"
