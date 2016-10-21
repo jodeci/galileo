@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   root "pages#index"
 
+  get :dashboard, to: "dashboard/pages#index"
   namespace :dashboard do
     resources :contents
   end
