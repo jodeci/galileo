@@ -9,5 +9,6 @@ nav.navbar.navbar-inverse.navbar-fixed-top
       = link_to "Dashboard", dashboard_path, class: "navbar-brand"
     div.collapse.navbar-collapse
       ul.nav.navbar-nav
-        = render "layouts/dashboard/navigation_links"
-        = render "layouts/dashboard/nav_links_for_auth"
+      ul.nav.navbar-nav.navbar-right
+        = render "layouts/dashboard/dropdown_account"
+        li = link_to "View Site", root_path

@@ -2,11 +2,6 @@
 class BaseController < ApplicationController
   helper_method :current_collection, :current_object
 
-  load_and_authorize_resource
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_path, alert: exception.message
-  end
-
   def index
   end
 
@@ -52,16 +47,6 @@ class BaseController < ApplicationController
   end
 
   # override in controller if needed
-  def require_permission
-    check_permission current_object.user
-  end
-
-  def check_permission(object_owner)
-    return unless current_user == object_owner
-    flash[:alert] = t("warnings.not_authorized")
-    redirect_to root_path
-  end
-
   def url_after_create
     request.env["HTTP_REFERER"] || url_for(action: :index)
   end
