@@ -7,6 +7,4 @@ class User < ApplicationRecord
 
   validates :username, uniqueness: true
   validates :username, format: { with: /\A\S*\z/, message: "no whitespace allowed" }
-
-  has_many :contents
 end

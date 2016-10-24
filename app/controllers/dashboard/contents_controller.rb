@@ -11,7 +11,7 @@ class Dashboard::ContentsController < Dashboard::BaseController
   end
 
   def resource_params
-    params.require(:contents).permit(
+    params.require(:content).permit(
       :title, :body, :abstract, :template, :cover_image, :status
     )
   end

@@ -1,0 +1,6 @@
+= simple_form_for [:dashboard, current_object] do |f|
+  = f.input :title
+  = f.input :abstract
+  = f.input :body
+  = f.input :status, collection: ::Content::STATUS
+  = f.submit
