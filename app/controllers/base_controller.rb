@@ -48,14 +48,16 @@ class BaseController < ApplicationController
 
   # override in controller if needed
   def url_after_create
-    request.env["HTTP_REFERER"] || url_for(action: :index)
+    url_for(action: :edit, id: current_object.id)
+  end
+
+  def url_after_update
+    url_for(action: :edit, id: current_object.id)
   end
 
   def url_after_destroy
     url_for(action: :index)
   end
-
-  alias url_after_update url_after_create
 
   # You should implement these in your controller
   def collection_scope; end
