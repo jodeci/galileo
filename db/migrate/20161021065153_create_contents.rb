@@ -7,7 +7,6 @@ class CreateContents < ActiveRecord::Migration[5.0]
       t.string :template
       t.string :cover_image
       t.string :status, default: "draft"
-      t.integer :user_id
 
       t.timestamps
     end
