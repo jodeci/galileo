@@ -2,5 +2,5 @@
   = f.input :title
   = f.input :abstract
   = f.input :body
-  = f.input :status, collection: ::Content::STATUS
-  = f.submit
+  = f.input :status, collection: option_hash(:status)
+  = f.submit "送出"

@@ -16,4 +16,15 @@ module ApplicationHelper
       "aria-expanded": "false"
     }
   end
+
+  # ::Object::CONSTANT defined in object model
+  # translation defined in meta_data.yml
+  def option_hash(attribute)
+    options = {}
+    scope = "options.#{current_object.model_name.param_key}.#{attribute}"
+    Object.const_get("::#{current_object.model_name}::#{attribute.upcase}").map do |i|
+      options[t(i, scope: scope)] = i
+    end
+    options
+  end
 end
