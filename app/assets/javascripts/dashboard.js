@@ -2,4 +2,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require_tree ./common
+//= require pagedown_bootstrap
+//= require pagedown_init
+//= require_tree ./dashboard

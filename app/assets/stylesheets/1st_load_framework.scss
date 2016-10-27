@@ -80,3 +80,9 @@ section {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+
+.dropdown {
+  span.caret {
+    margin-left: 5px;
+  }
+}
