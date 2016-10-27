@@ -1,6 +1,7 @@
 = simple_form_for [:dashboard, current_object] do |f|
   = f.input :title
   = f.input :abstract
-  = f.input :body
+  = f.input :body, as: :pagedown, input_html: { preview: true, rows: 10 }
   = f.input :status, collection: option_hash(:status)
   = f.submit "送出"
+

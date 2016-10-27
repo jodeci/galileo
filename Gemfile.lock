@@ -74,6 +74,8 @@ GEM
     faker (1.6.6)
       i18n (~> 0.5)
     ffi (1.9.14)
+    font-awesome-rails (4.6.3.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hirb (0.7.3)
@@ -109,6 +111,8 @@ GEM
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
     orm_adapter (0.5.0)
+    pagedown-bootstrap-rails (2.1.3)
+      railties (> 3.1)
     pg (0.19.0)
     puma (3.6.0)
     rack (2.0.1)
@@ -142,6 +146,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redcarpet (3.3.4)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
     rspec-core (3.5.4)
@@ -223,15 +228,18 @@ DEPENDENCIES
   devise
   factory_girl_rails
   faker
+  font-awesome-rails
   hirb-unicode
   jbuilder (~> 2.5)
   jquery-rails
   kaminari
   listen (~> 3.0.5)
+  pagedown-bootstrap-rails
   pg (~> 0.18)
   puma (~> 3.0)
   rails (~> 5.0.0, >= 5.0.0.1)
   rails_layout
+  redcarpet
   rspec-rails
   sass-rails (~> 5.0)
   shoulda-matchers

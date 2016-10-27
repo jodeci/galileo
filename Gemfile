@@ -16,6 +16,11 @@ gem "simple_form"
 gem "kaminari"
 gem "stateful_enum"
 
+# markdown
+gem "redcarpet"
+gem "font-awesome-rails"
+gem "pagedown-bootstrap-rails"
+
 gem "devise"
 
 group :development, :test do
