@@ -1,0 +1,10 @@
+table.table
+  tr
+    th #
+    th = jr_attr :title, :content
+    th = jr_attr :status, :content
+  - current_collection.each do |item|
+    tr
+      td = item.id
+      td = link_to item.title, edit_dashboard_content_path(item)
+      td = jr_value :status, :content, item.status

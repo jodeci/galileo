@@ -1,0 +1,38 @@
+zh-TW:
+  jurou:
+    content:
+      status:
+        draft: 草稿
+        protected: 密碼保護
+        public: 公開
+
+    app_title: 伽利略
+
+    page_titles:
+      pages:
+        index: 首頁
+
+      registrations:
+        new: 新建帳號
+        edit: 修改帳號資料
+
+      devise/sessions:
+        sign_in: 登入
+        sign_out: 登出
+
+      dashboard/pages: 
+        index: 管理介面
+
+      dashboard/contents:
+        index: 文章列表
+        new: 新增文章
+        edit: 文章編輯
+        show: 文章預覽
+      
+  activerecord:
+    attributes:
+      content:
+        title: 標題
+        abstract: 摘要
+        body: 內文
+        status: 狀態

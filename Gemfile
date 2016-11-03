@@ -15,6 +15,7 @@ gem "slim"
 gem "simple_form"
 gem "kaminari"
 gem "stateful_enum"
+gem "jurou"
 
 # markdown
 gem "redcarpet"

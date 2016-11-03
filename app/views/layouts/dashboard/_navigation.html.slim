@@ -12,12 +12,12 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         li.dropdown
           = dropdown_title t("navbar.contents")
           ul.dropdown-menu
-            li = link_to t("title.content.index"), dashboard_contents_path
-            li = link_to t("title.content.new"), new_dashboard_content_path
+            li = link_to jr_simple_title("dashboard/contents", "index"), dashboard_contents_path
+            li = link_to jr_simple_title("dashboard/contents", "new"), new_dashboard_content_path
       ul.nav.navbar-nav.navbar-right
         li.dropdown
           = dropdown_title t("navbar.account")
           ul.dropdown-menu
-            li = link_to t("title.account.edit"), edit_user_registration_path
-            li = link_to t("title.account.sign_out"), destroy_user_session_path, method: :delete
+            li = link_to jr_simple_title("registrations", "edit"), edit_user_registration_path
+            li = link_to jr_simple_title("devise/sessions", "sign_out"), destroy_user_session_path, method: :delete
         li = link_to t("navbar.view_site"), root_path
