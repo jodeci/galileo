@@ -21,6 +21,31 @@ module ApplicationHelper
     end
   end
 
+  def bsb(action, path, options = {})
+    bsb_options = {}
+    bsb_options[:class] = bsb_class(action, options)
+    bsb_options[:method] = options[:method] if options[:method]
+    bsb_options[:data] = { confirm: t("confirm.#{action}") } if options[:confirm]
+    link_to t("actions.#{action}"), path, bsb_options
+  end
+
+  private
+
+  def bsb_class(action, options = {})
+    size = options[:size] ? options[:size] : "xs"
+    style = options[:style] ? options[:style] : bsb_style(action)
+    "btn btn-#{size} btn-#{style}"
+  end
+
+  def bsb_style(action)
+    case action
+    when :show then "info"
+    when :edit then "success"
+    when :destroy then "danger"
+    else "primary"
+    end
+  end
+
   def dropdown_title_hash
     {
       "class": "dropdown-toggle",
@@ -29,16 +54,5 @@ module ApplicationHelper
       "aria-haspopup": "true",
       "aria-expanded": "false"
     }
-  end
-
-  # ::Object::CONSTANT defined in object model
-  # translation defined in meta_data.yml
-  def option_hash(attribute)
-    options = {}
-    scope = "options.#{current_object.model_name.param_key}.#{attribute}"
-    Object.const_get("::#{current_object.model_name}::#{attribute.upcase}").map do |i|
-      options[t(i, scope: scope)] = i
-    end
-    options
   end
 end

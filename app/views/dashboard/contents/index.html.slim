@@ -3,8 +3,13 @@ table.table
     th #
     th = jr_attr :title, :content
     th = jr_attr :status, :content
+    th = t("actions._label")
   - current_collection.each do |item|
     tr
       td = item.id
-      td = link_to item.title, edit_dashboard_content_path(item)
+      td = item.title
       td = jr_value :status, :content, item.status
+      td.actions 
+        = bsb :show, dashboard_content_path(item)
+        = bsb :edit, edit_dashboard_content_path(item)
+        = bsb :destroy, dashboard_content_path(item), method: :delete, confirm: true
