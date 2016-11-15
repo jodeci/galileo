@@ -1,4 +1,6 @@
 # frozen_string_literal: true
 class Content < ApplicationRecord
-  STATUS = %w(draft protected public).freeze
+  include FriendlyId
+  friendly_id :slug, use: :slugged
+  acts_as_taggable
 end

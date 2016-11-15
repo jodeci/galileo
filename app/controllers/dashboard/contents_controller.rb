@@ -2,8 +2,12 @@
 class Dashboard::ContentsController < Dashboard::BaseController
   private
 
+  def current_object
+    @current_object ||= collection_scope.friendly.find(params[:id])
+  end
+
   def collection_scope
-    if params[:id]
+    if params[:id] 
       ::Content
     else
       ::Content.order(id: :desc)
@@ -12,7 +16,7 @@ class Dashboard::ContentsController < Dashboard::BaseController
 
   def resource_params
     params.require(:content).permit(
-      :title, :body, :abstract, :template, :cover_image, :status
+      :title, :body, :abstract, :template, :cover_image, :status, :tag_list, :slug
     )
   end
 end
