@@ -33,6 +33,7 @@ zh-TW:
     attributes:
       content:
         title: 標題
+        published_at: 發表時間
         abstract: 摘要
         body: 內文
         status: 狀態
