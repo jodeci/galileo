@@ -29,6 +29,10 @@ module ApplicationHelper
     link_to t("actions.#{action}"), path, bsb_options
   end
 
+  def no_data_alert(message = t("warnings.no_data"))
+    content_tag :div, message, class: "alert alert-warning"
+  end
+
   private
 
   def bsb_class(action, options = {})

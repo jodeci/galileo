@@ -18,3 +18,6 @@ zh-TW:
 
   confirm:
     destroy: 確認要刪除？
+
+  warnings:
+    no_data: 尚無資料
