@@ -13,3 +13,6 @@ table.table
         = bsb :show, dashboard_content_path(item.id)
         = bsb :edit, edit_dashboard_content_path(item.id)
         = bsb :destroy, dashboard_content_path(item.id), method: :delete, confirm: true
+
+.paginate
+  = paginate current_collection

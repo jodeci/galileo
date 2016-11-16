@@ -7,7 +7,7 @@ class Dashboard::ContentsController < Dashboard::BaseController
   end
 
   def collection_scope
-    if params[:id] 
+    if params[:id]
       ::Content
     else
       ::Content.order(id: :desc)
