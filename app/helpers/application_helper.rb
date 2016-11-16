@@ -40,7 +40,7 @@ module ApplicationHelper
   def bsb_style(action)
     case action
     when :show then "info"
-    when :edit then "success"
+    when :edit then "warning"
     when :destroy then "danger"
     else "primary"
     end

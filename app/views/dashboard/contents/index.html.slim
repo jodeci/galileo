@@ -10,6 +10,6 @@ table.table
       td = item.title
       td = jr_value :status, :content, item.status
       td.actions 
-        = bsb :show, dashboard_content_path(item)
-        = bsb :edit, edit_dashboard_content_path(item)
-        = bsb :destroy, dashboard_content_path(item), method: :delete, confirm: true
+        = bsb :show, dashboard_content_path(item.id)
+        = bsb :edit, edit_dashboard_content_path(item.id)
+        = bsb :destroy, dashboard_content_path(item.id), method: :delete, confirm: true
