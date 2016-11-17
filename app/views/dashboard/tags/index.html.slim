@@ -1,0 +1,20 @@
+- if current_collection.any?
+  table.table
+    tr
+      th #
+      th = jr_attr :name, "acts_as_taggable_on/tag"
+      th = jr_attr :taggings_count, "acts_as_taggable_on/tag"
+      th = t("actions._label")
+    - current_collection.each do |item|
+      tr
+        td = item.id
+        td = item.name
+        td = item.taggings_count
+        td.actions
+          = bsb :edit, edit_dashboard_tag_path(item)
+          = bsb :destroy, dashboard_tag_path(item), method: :delete, confirm: true
+  .paginate
+    = paginate current_collection
+
+- else
+  = no_data_alert

@@ -4,12 +4,14 @@
       th #
       th = jr_attr :title, :content
       th = jr_attr :status, :content
+      th = jr_attr :tag_list, :content
       th = t("actions._label")
     - current_collection.each do |item|
       tr
         td = item.id
         td = item.title
         td = jr_value :status, :content, item.status
+        td = item.tag_list
         td.actions 
           = bsb :show, dashboard_content_path(item.id)
           = bsb :edit, edit_dashboard_content_path(item.id)

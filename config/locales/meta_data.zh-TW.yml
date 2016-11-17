@@ -4,6 +4,7 @@ zh-TW:
     view_site: 檢視網站
     account: 帳號管理
     contents: 文章管理
+    tags: 標籤管理
 
   success:
     create: 新建資料成功

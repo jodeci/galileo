@@ -28,6 +28,9 @@ zh-TW:
         new: 新增文章
         edit: 文章編輯
         show: 文章預覽
+
+      dashboard/tags:
+        index: 標籤列表
       
   activerecord:
     attributes:
@@ -39,3 +42,7 @@ zh-TW:
         status: 狀態
         tag_list: 標籤
         slug: 友善網址
+
+      acts_as_taggable_on/tag:
+        name: 標籤
+        taggings_count: 使用次數
