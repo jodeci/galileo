@@ -1,16 +1,8 @@
 # frozen_string_literal: true
 class Content < ApplicationRecord
   include FriendlyId
-  friendly_id :title, use: :slugged
+  friendly_id :slug, use: :slugged
   acts_as_taggable
-
-  def normalize_friendly_id(input)
-    input.to_s.to_slug.normalize.to_s
-  end
-
-  private
-
-  def should_generate_new_friendly_id?
-    title_changed?
-  end
+  validates :slug, uniqueness: { message: I18n.t("validation.uniqueness") }
+  validates :slug, format: { with: /\A[a-zA-Z0-9_-]+\z/, message: I18n.t("validation.format.slug"), allow_blank: true }
 end
