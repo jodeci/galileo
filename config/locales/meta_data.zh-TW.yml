@@ -23,6 +23,10 @@ zh-TW:
   warnings:
     no_data: 尚無資料
 
+  hints:
+    content:
+      tag_list: "以 , 分隔"
+
   validation:
     uniqueness: 已有相同資料
     format:

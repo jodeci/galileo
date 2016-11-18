@@ -28,9 +28,11 @@ zh-TW:
         new: 新增文章
         edit: 文章編輯
         show: 文章預覽
+        taglist: 文章列表
 
       dashboard/tags:
         index: 標籤列表
+        edit: 修改標籤
       
   activerecord:
     attributes:

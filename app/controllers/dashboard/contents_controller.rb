@@ -1,5 +1,10 @@
 # frozen_string_literal: true
 class Dashboard::ContentsController < Dashboard::BaseController
+  def taglist
+    @current_collection ||= ::Content.tagged_with(params[:name]).page(params[:page])
+    render :index
+  end
+
   private
 
   def current_object

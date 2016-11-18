@@ -11,7 +11,7 @@
         td = item.id
         td = item.title
         td = jr_value :status, :content, item.status
-        td = item.tag_list
+        td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_contents_taglist_path(tag) }), ", ")
         td.actions 
           = bsb :show, dashboard_content_path(item.id)
           = bsb :edit, edit_dashboard_content_path(item.id)
