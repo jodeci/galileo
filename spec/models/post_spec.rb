@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 require "rails_helper"
 
-RSpec.describe Content, type: :model do
-  let(:content) { FactoryGirl.create(:content) }
+RSpec.describe Post, type: :model do
+  let(:post) { FactoryGirl.create(:post) }
 
   describe "validations" do
     context "for slug" do
-      subject { FactoryGirl.build(:content) }
+      subject { FactoryGirl.build(:post) }
       it { should validate_uniqueness_of(:slug).with_message(I18n.t("validation.uniqueness")) }
 
       context "when format is invalid" do

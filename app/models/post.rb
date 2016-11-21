@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Content < ApplicationRecord
+class Post < ApplicationRecord
   include FriendlyId
   friendly_id :slug, use: :slugged
   acts_as_taggable

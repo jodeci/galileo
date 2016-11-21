@@ -3,7 +3,7 @@ zh-TW:
     dashboard: 管理介面
     view_site: 檢視網站
     account: 帳號管理
-    contents: 文章管理
+    posts: 文章管理
     tags: 標籤管理
 
   success:
@@ -24,7 +24,7 @@ zh-TW:
     no_data: 尚無資料
 
   hints:
-    content:
+    post:
       tag_list: "以 , 分隔"
 
   validation:

@@ -1,6 +1,6 @@
 zh-TW:
   jurou:
-    content:
+    post:
       status:
         draft: 草稿
         protected: 密碼保護
@@ -23,7 +23,7 @@ zh-TW:
       dashboard/pages: 
         index: 管理介面
 
-      dashboard/contents:
+      dashboard/posts:
         index: 文章列表
         new: 新增文章
         edit: 文章編輯
@@ -36,7 +36,7 @@ zh-TW:
       
   activerecord:
     attributes:
-      content:
+      post:
         title: 標題
         published_at: 發表時間
         abstract: 摘要

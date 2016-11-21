@@ -1,0 +1,25 @@
+h1 = jr_simple_title
+- if current_collection.any?
+  table.table
+    tr
+      th #
+      th = jr_attr :title, :post
+      th = jr_attr :status, :post
+      th = jr_attr :tag_list, :post
+      th = t("actions._label")
+    - current_collection.each do |item|
+      tr
+        td = item.id
+        td = item.title
+        td = jr_value :status, :post, item.status
+        td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_posts_taglist_path(tag) }), ", ")
+        td.actions 
+          = bsb :show, dashboard_post_path(item.id)
+          = bsb :edit, edit_dashboard_post_path(item.id)
+          = bsb :destroy, dashboard_post_path(item.id), method: :delete, confirm: true
+
+  .paginate
+    = paginate current_collection
+
+- else
+  = no_data_alert
