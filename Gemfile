@@ -16,6 +16,7 @@ gem "simple_form"
 gem "kaminari"
 gem "stateful_enum"
 gem "jurou"
+gem "shikigami"
 
 # tagging and urls
 gem "acts-as-taggable-on", "~> 4.0"

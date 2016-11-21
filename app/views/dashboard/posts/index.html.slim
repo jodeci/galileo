@@ -14,9 +14,9 @@ h1 = jr_simple_title
         td = jr_value :status, :post, item.status
         td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_posts_taglist_path(tag) }), ", ")
         td.actions 
-          = bsb :show, dashboard_post_path(item.id)
-          = bsb :edit, edit_dashboard_post_path(item.id)
-          = bsb :destroy, dashboard_post_path(item.id), method: :delete, confirm: true
+          = bs_btn :show, dashboard_post_path(item.id)
+          = bs_btn :edit, edit_dashboard_post_path(item.id)
+          = bs_btn :destroy, dashboard_post_path(item.id), method: :delete, confirm: true
 
   .paginate
     = paginate current_collection

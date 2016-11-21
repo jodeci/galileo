@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get :dashboard, to: "dashboard/pages#index"
   namespace :dashboard do
     resources :posts
-    get "posts/taglist/:name", to: "post#taglist", as: :posts_taglist
+    get "posts/taglist/:name", to: "posts#taglist", as: :posts_taglist
     resources :tags, only: [:index, :edit, :update, :destroy]
   end
 end

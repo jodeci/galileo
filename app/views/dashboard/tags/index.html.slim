@@ -12,8 +12,8 @@ h1 = jr_simple_title
         td = item.name
         td = item.taggings_count
         td.actions
-          = bsb :edit, edit_dashboard_tag_path(item)
-          = bsb :destroy, dashboard_tag_path(item), method: :delete, confirm: true
+          = bs_btn :edit, edit_dashboard_tag_path(item)
+          = bs_btn :destroy, dashboard_tag_path(item), method: :delete, confirm: true
   .paginate
     = paginate current_collection
 
