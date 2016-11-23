@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Dashboard::BaseController < ::BaseController
+class Dashboard::BaseController < Shikigami::BaseController
   before_action :force_login
   layout "dashboard"
 
