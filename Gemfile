@@ -29,6 +29,7 @@ gem "font-awesome-rails"
 gem "pagedown-bootstrap-rails"
 
 gem "devise"
+gem "carrierwave"
 
 group :development, :test do
   gem "byebug", platform: :mri

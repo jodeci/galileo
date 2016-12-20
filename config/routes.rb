@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :posts
     get "posts/taglist/:name", to: "posts#taglist", as: :posts_taglist
     resources :tags, only: [:index, :edit, :update, :destroy]
+    resources :images
   end
 end
