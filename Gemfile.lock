@@ -74,6 +74,7 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.7.0)
+    exifr (1.2.5)
     factory_girl (4.7.0)
       activesupport (>= 3.0.0)
     factory_girl_rails (4.7.0)
@@ -120,6 +121,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.2)
+    mini_magick (4.5.1)
     mini_portile2 (2.1.0)
     minitest (5.9.1)
     multi_json (1.12.1)
@@ -245,6 +247,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   database_cleaner
   devise
+  exifr
   factory_girl_rails
   faker
   font-awesome-rails
@@ -256,6 +259,7 @@ DEPENDENCIES
   jurou
   kaminari
   listen (~> 3.0.5)
+  mini_magick
   pagedown-bootstrap-rails
   pg (~> 0.18)
   puma (~> 3.0)

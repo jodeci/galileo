@@ -30,6 +30,12 @@ zh-TW:
         show: 文章預覽
         taglist: 文章列表
 
+      dashboard/images:
+        index: 圖片列表
+        new: 新增圖片
+        edit: 修改圖片
+        taglist: 圖片列表
+
       dashboard/tags:
         index: 標籤列表
         edit: 修改標籤

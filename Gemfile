@@ -29,7 +29,11 @@ gem "font-awesome-rails"
 gem "pagedown-bootstrap-rails"
 
 gem "devise"
+
+# image handling
 gem "carrierwave"
+gem "mini_magick"
+gem "exifr"
 
 group :development, :test do
   gem "byebug", platform: :mri

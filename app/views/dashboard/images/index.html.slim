@@ -1,0 +1,15 @@
+- if current_collection.any?
+  table.table
+    tr
+      th #
+      th thumb
+      th = t("actions._label")
+    - current_collection.each do |item|
+      tr
+        td = item.id
+        td = image_tag item.info.small_thumb.url
+        td.actions
+          = bs_btn :edit, edit_dashboard_image_path(item.id)
+          = bs_btn :destroy, dashboard_image_path(item.id), method: :delete, confirm: true
+- else
+  = no_data_alert

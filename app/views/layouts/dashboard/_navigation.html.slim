@@ -15,6 +15,11 @@ nav.navbar.navbar-inverse.navbar-fixed-top
             li = link_to jr_simple_title("dashboard/posts", "index"), dashboard_posts_path
             li = link_to jr_simple_title("dashboard/posts", "new"), new_dashboard_post_path
         li.dropdown
+          = bs_dd_toggle t("navbar.images")
+          ul.dropdown-menu
+            li = link_to jr_simple_title("dashboard/images", "index"), dashboard_images_path
+            li = link_to jr_simple_title("dashboard/images", "new"), new_dashboard_image_path
+        li.dropdown
           = bs_dd_toggle t("navbar.tags")
           ul.dropdown-menu
             li = link_to jr_simple_title("dashboard/tags", "index"), dashboard_tags_path
