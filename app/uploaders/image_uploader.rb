@@ -3,7 +3,6 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :file
-  process resize_to_limit: [800, 800]
   process :auto_orient
   process :store_dimensions
 
@@ -11,19 +10,23 @@ class ImageUploader < CarrierWave::Uploader::Base
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  def get_exif
-    EXIFR::JPEG::new(self.file.file)
+  def exif
+    EXIFR::JPEG.new(self.file.file)
   end
 
   def extension_white_list
     %w(jpg jpeg gif png)
   end
 
-  version :thumb do
-    process :resize_to_fill => [200, 200]
+  version :large do
+    process resize_to_limit: [800, 800]
   end
 
-  version :small_thumb, from_version: :thumb do
+  version :medium, from_version: :large do
+    process resize_to_limit: [500, 500]
+  end
+
+  version :thumb, from_version: :medium do
     process resize_to_fill: [100, 100]
   end
 
@@ -37,8 +40,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def store_dimensions
-    if file && model
-      model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
-    end
+    return unless file and model
+    model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
   end
 end
