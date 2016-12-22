@@ -11,6 +11,6 @@ class Dashboard::ImagesController < Dashboard::BaseController
   end
 
   def resource_params
-    params.require(:image).permit(:file)
+    params.require(:image).permit(:file, :caption)
   end
 end

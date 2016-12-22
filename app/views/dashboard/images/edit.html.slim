@@ -1,2 +1,3 @@
 = render "form"
-= image_tag current_object.file.large.url
+div.image = image_tag current_object.file.large.url
+p = exif_data current_object.exif

@@ -1,1 +1,3 @@
-= image_tag current_object.file.large.url
+div.image = image_tag current_object.file.large.url
+p = current_object.caption
+p = exif_data current_object.exif

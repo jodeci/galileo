@@ -2,13 +2,16 @@
   table.table
     tr
       th #
-      th thumb
+      th = jr_attr :thumb, :image
+      th = jr_attr :caption, :image
       th = t("actions._label")
     - current_collection.each do |item|
       tr
         td = item.id
-        td = image_tag item.file.thumb.url
+        td.thumbs = image_tag item.file.thumb.url
+        td = truncate item.caption
         td.actions
+          = bs_btn :show, dashboard_image_path(item.id)
           = bs_btn :edit, edit_dashboard_image_path(item.id)
           = bs_btn :destroy, dashboard_image_path(item.id), method: :delete, confirm: true
 - else
