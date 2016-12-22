@@ -52,8 +52,9 @@ zh-TW:
         slug: 友善網址
 
       image:
-        thumb: 縮圖
         caption: 圖說
+        tag_list: 標籤
+        thumb: 縮圖
 
       acts_as_taggable_on/tag:
         name: 標籤

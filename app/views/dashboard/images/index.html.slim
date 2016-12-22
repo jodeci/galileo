@@ -4,12 +4,14 @@
       th #
       th = jr_attr :thumb, :image
       th = jr_attr :caption, :image
+      th = jr_attr :tag_list, :image
       th = t("actions._label")
     - current_collection.each do |item|
       tr
         td = item.id
         td.thumbs = image_tag item.file.thumb.url
         td = truncate item.caption
+        td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_images_taglist_path(tag) }), ", ")
         td.actions
           = bs_btn :show, dashboard_image_path(item.id)
           = bs_btn :edit, edit_dashboard_image_path(item.id)
