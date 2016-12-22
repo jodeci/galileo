@@ -1,17 +1,12 @@
 # frozen_string_literal: true
-# encoding: utf-8
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :file
   process :auto_orient
-  process :store_dimensions
+  process :store_exif_data
 
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
-  end
-
-  def exif
-    EXIFR::JPEG.new(self.file.file)
   end
 
   def extension_white_list
@@ -39,8 +34,8 @@ class ImageUploader < CarrierWave::Uploader::Base
     end
   end
 
-  def store_dimensions
+  def store_exif_data
     return unless file and model
-    model.width, model.height = ::MiniMagick::Image.open(file.file)[:dimensions]
+    model.exif = EXIFR::JPEG.new(self.file.file).to_hash
   end
 end

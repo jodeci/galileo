@@ -7,7 +7,7 @@
     - current_collection.each do |item|
       tr
         td = item.id
-        td = image_tag item.info.thumb.url
+        td = image_tag item.file.thumb.url
         td.actions
           = bs_btn :edit, edit_dashboard_image_path(item.id)
           = bs_btn :destroy, dashboard_image_path(item.id), method: :delete, confirm: true

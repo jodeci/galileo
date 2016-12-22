@@ -19,6 +19,32 @@ class HTMLBlockCode < Redcarpet::Render::HTML
   include Sprockets::Rails::Helper
   include ActionView::Helpers::UrlHelper
 
+  def image(link, title, alt_text)
+    klass = nil
+    if nil != (parse = parse_media_link(link))
+      media = Image.find(parse[:id])
+      if media
+        link = image_url(media, parse[:size])
+        klass = parse[:class]
+      end
+    end
+    image_tag(link, title: title, alt: alt_text, class: klass)
+  end
+
+  def link(link, title, content)
+    klass = nil
+    if nil != (parse = parse_media_link(link))
+      media = Image.find(parse[:id])
+      if media
+        link = image_url(media, parse[:size])
+        klass = parse[:class]
+      end
+    end
+    link_to(content, link, title: title, class: klass)
+  end
+
+  private
+
   def parse_media_link(link)
     matches = link.match(/^([\w\d\.]+)(?:\|(\w+))?(?:\|([\w\s\d]+))?$/)
     return if matches.blank?
@@ -29,40 +55,12 @@ class HTMLBlockCode < Redcarpet::Render::HTML
     }
   end
 
-  def image(link, title, alt_text)
-    klass = nil
-
-    if nil != (parse = parse_media_link(link))
-      media = Image.find(parse[:id])
-      if media
-        link = image_url(media, parse[:size])
-        klass = parse[:class]
-      end
-    end
-
-    image_tag(link, title: title, alt: alt_text, class: klass)
-  end
-
-  def link(link, title, content)
-    klass = nil
-
-    if nil != (parse = parse_media_link(link))
-      media = Image.find(parse[:id])
-      if media
-        link = image_url(media, parse[:size])
-        klass = parse[:class]
-      end
-    end
-
-    link_to(content, link, title: title, class: klass)
-  end
-
   def image_url(image, size)
     case size
-    when "medium" then image.info.medium.url
-    when "thumb" then image.info.thumb.url
+    when "medium" then image.file.medium.url
+    when "thumb" then image.file.thumb.url
     else
-      image.info.large.url
+      image.file.large.url
     end
   end
 end
