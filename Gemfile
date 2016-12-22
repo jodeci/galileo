@@ -24,9 +24,11 @@ gem "acts-as-taggable-on", "~> 4.0"
 gem "friendly_id", "~> 5.1.0"
 
 # markdown
-gem "redcarpet"
 gem "font-awesome-rails"
 gem "pagedown-bootstrap-rails"
+gem "html-pipeline"
+gem "github-markdown"
+gem "sanitize"
 
 gem "devise"
 
