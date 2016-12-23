@@ -34,6 +34,7 @@ zh-TW:
         index: 圖片列表
         new: 新增圖片
         edit: 修改圖片
+        show: 圖片編輯
         taglist: 圖片列表
 
       dashboard/tags:
@@ -54,6 +55,7 @@ zh-TW:
       image:
         caption: 圖說
         tag_list: 標籤
+        file: 圖檔
         thumb: 縮圖
 
       acts_as_taggable_on/tag:

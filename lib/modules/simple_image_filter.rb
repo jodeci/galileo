@@ -3,7 +3,7 @@ class SimpleImageFilter < HTML::Pipeline::Filter
   def call
     doc.search("img").each do |img|
       next if (parse = parse_image_src(URI.decode(img["src"]))).nil?
-      image = Image.find(parse[:id])
+      next if (image = Image.find_by(id: parse[:id])).nil?
       img["src"] = image_url(image, parse[:size])
       img["class"] = parse[:klass] unless parse[:klass].nil?
     end
