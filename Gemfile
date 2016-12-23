@@ -29,6 +29,8 @@ gem "pagedown-bootstrap-rails"
 gem "html-pipeline"
 gem "github-markdown"
 gem "sanitize"
+gem "html-pipeline-rouge_filter"
+gem "twemoji"
 
 gem "devise"
 

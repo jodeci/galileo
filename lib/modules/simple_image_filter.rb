@@ -1,24 +1,4 @@
 # frozen_string_literal: true
-module HtmlPipelineHelper
-  def markdownify(content)
-    pipeline_context = { gfm: true, whitelist: sanitize_whitelist }
-    pipeline = HTML::Pipeline.new [
-      HTML::Pipeline::MarkdownFilter,
-      HTML::Pipeline::SimpleImageFilter,
-      HTML::Pipeline::SanitizationFilter
-    ], pipeline_context
-    pipeline.call(content)[:output].to_s.html_safe
-  end
-
-  private
-
-  def sanitize_whitelist
-    list = HTML::Pipeline::SanitizationFilter::WHITELIST
-    list[:attributes][:all] << "class"
-    list
-  end
-end
-
 class SimpleImageFilter < HTML::Pipeline::Filter
   def call
     doc.search("img").each do |img|
