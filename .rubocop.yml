@@ -95,3 +95,9 @@ ConditionalAssignment:
 
 Style/BlockComments:
   Enabled: false
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: no_comma
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: consistent_comma

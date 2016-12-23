@@ -13,7 +13,7 @@ class RenderMarkdown
       EmojiFilter,
       SimpleImageFilter,
       HTML::Pipeline::SanitizationFilter,
-      HTML::Pipeline::RougeFilter
+      HTML::Pipeline::RougeFilter,
     ], pipeline_context
     pipeline.call(content)[:output].to_s
   end

@@ -2,7 +2,7 @@
 class SimpleImageFilter < HTML::Pipeline::Filter
   def call
     doc.search("img").each do |img|
-      next if (parse = parse_media_link(URI.decode(img["src"]))).nil?
+      next if (parse = parse_image_src(URI.decode(img["src"]))).nil?
       image = Image.find(parse[:id])
       img["src"] = image_url(image, parse[:size])
       img["class"] = parse[:klass] unless parse[:klass].nil?
@@ -12,13 +12,13 @@ class SimpleImageFilter < HTML::Pipeline::Filter
 
   private
 
-  def parse_media_link(link)
+  def parse_image_src(link)
     matches = link.match(/^([\w\d\.]+)(?:\|(\w*))?(?:\|([\w\s\d]+))?$/)
     return if matches.blank?
     {
       id: matches[1],
       size: matches[2],
-      klass: matches[3]
+      klass: matches[3],
     }
   end
 
