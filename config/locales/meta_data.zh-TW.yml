@@ -26,7 +26,8 @@ zh-TW:
 
   hints:
     post:
-      tag_list: "以 , 分隔"
+      tag_list: 以 , 分隔
+      cover_image: 輸入圖片主鍵
 
   validation:
     uniqueness: 已有相同資料

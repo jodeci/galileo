@@ -51,6 +51,7 @@ zh-TW:
         status: 狀態
         tag_list: 標籤
         slug: 友善網址
+        cover_image: 封面
 
       image:
         caption: 圖說
