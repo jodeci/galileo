@@ -1,11 +1,13 @@
 # frozen_string_literal: false
 class PagedownInput < SimpleForm::Inputs::TextInput
   def input(wrapper_options = {})
-    out = "<div id=\"wmd-button-bar-#{attribute_name}\"></div>#{wmd_input}"
+    out = []
+    out << content_tag(:div, nil, id: "wmd-button-bar-#{attribute_name}")
+    out << wmd_input
     if input_html_options[:preview]
-      out << "<div id=\"wmd-preview-#{attribute_name}\" class=\"wmd-preview\"></div>"
+      out << content_tag(:div, nil, id: "wmd-preview-#{attribute_name}", class: "wmd-preview")
     end
-    out.html_safe
+    safe_join(out)
   end
 
   private

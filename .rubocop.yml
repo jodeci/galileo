@@ -8,6 +8,7 @@ AllCops:
     - db/**/*
     - config/**/*
     - lib/tasks/*.rake
+    - spec/dummy/**/*
 
 Rails:
   Enabled: true
@@ -93,6 +94,9 @@ MultilineMethodCallIndentation:
 ConditionalAssignment:
   Enabled: false
 
+Style/EmptyMethod:
+  Enabled: false
+
 Style/BlockComments:
   Enabled: false
 
@@ -101,3 +105,11 @@ Style/TrailingCommaInArguments:
 
 Style/TrailingCommaInLiteral:
   EnforcedStyleForMultiline: consistent_comma
+
+Metrics/ModuleLength:
+  Exclude:
+    - "**/*_spec.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "**/*_spec.rb"
