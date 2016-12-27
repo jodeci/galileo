@@ -15,7 +15,8 @@ class RenderMarkdown
       HTML::Pipeline::SanitizationFilter,
       HTML::Pipeline::RougeFilter,
     ], pipeline_context
-    pipeline.call(content)[:output].to_s
+    # rubocop: disable OutputSafety
+    pipeline.call(content)[:output].to_s.html_safe
   end
 
   private
