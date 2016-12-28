@@ -6,9 +6,10 @@ class RegistrationsController < Devise::RegistrationsController
 
   # override devise for single user usage
   def one_user_registered?
-    if User.count == 1 and user_signed_in?
+    return unless User.count == 1
+    if user_signed_in?
       redirect_to root_path
-    elsif User.count == 1
+    else
       redirect_to new_user_session_path
     end
   end

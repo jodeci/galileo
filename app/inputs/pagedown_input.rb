@@ -1,6 +1,6 @@
 # frozen_string_literal: false
 class PagedownInput < SimpleForm::Inputs::TextInput
-  def input(wrapper_options = {})
+  def input(wrapper_options)
     out = []
     out << content_tag(:div, nil, id: "wmd-button-bar-#{attribute_name}")
     out << wmd_input

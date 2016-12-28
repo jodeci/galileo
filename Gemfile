@@ -14,6 +14,7 @@ gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass"
 gem "slim"
 gem "simple_form"
+gem "devise"
 gem "kaminari"
 gem "stateful_enum"
 gem "jurou"
@@ -31,8 +32,6 @@ gem "github-markdown"
 gem "sanitize"
 gem "html-pipeline-rouge_filter"
 gem "twemoji"
-
-gem "devise"
 
 # image handling
 gem "carrierwave"

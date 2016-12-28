@@ -4,10 +4,12 @@ class RenderMarkdown
 
   def initialize(content)
     @content = content
+    @whitelist = HTML::Pipeline::SanitizationFilter::WHITELIST
+    @whitelist[:attributes][:all] << "class"
   end
 
   def call
-    pipeline_context = { gfm: true, whitelist: sanitize_whitelist }
+    pipeline_context = { gfm: true, whitelist: @whitelist }
     pipeline = HTML::Pipeline.new [
       NoHtmlMarkdownFilter,
       EmojiFilter,
@@ -17,13 +19,5 @@ class RenderMarkdown
     ], pipeline_context
     # rubocop: disable OutputSafety
     pipeline.call(content)[:output].to_s.html_safe
-  end
-
-  private
-
-  def sanitize_whitelist
-    list = HTML::Pipeline::SanitizationFilter::WHITELIST
-    list[:attributes][:all] << "class"
-    list
   end
 end
