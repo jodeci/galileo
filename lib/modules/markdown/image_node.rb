@@ -1,10 +1,9 @@
 # frozen_string_literal: true
-class ImageNode
-  attr_reader :src, :klass
+class Markdown::ImageNode
+  attr_reader :image_url, :image_class
 
   def initialize(node)
-    @node = node
-    @meta = ImageMeta.new(node["src"])
+    @meta = Markdown::ImageMeta.new(node["src"])
     @image = find_image
   end
 
@@ -12,11 +11,11 @@ class ImageNode
     Image.find_by(id: @meta.image_id)
   end
 
-  def src
+  def image_url
     @image.file.url(@meta.image_size)
   end
 
-  def klass
+  def image_class
     @meta.image_class
   end
 end

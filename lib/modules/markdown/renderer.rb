@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class RenderMarkdown
+class Markdown::Renderer
   attr_reader :content
 
   def initialize(content)
@@ -11,9 +11,9 @@ class RenderMarkdown
   def call
     pipeline_context = { gfm: true, whitelist: @whitelist }
     pipeline = HTML::Pipeline.new [
-      NoHtmlMarkdownFilter,
-      EmojiFilter,
-      SimpleImageFilter,
+      Markdown::NoHtmlFilter,
+      Markdown::ImageFilter,
+      Markdown::EmojiFilter,
       HTML::Pipeline::SanitizationFilter,
       HTML::Pipeline::RougeFilter,
     ], pipeline_context
