@@ -3,11 +3,11 @@ class Markdown::ImageNode
   def initialize(node)
     @node = node
     @meta = Markdown::ImageMeta.new(node["src"])
-    @image = find_image
+    @image = Image.fetch(@meta.image_id)
   end
 
   def replace_image
-    @node["src"] = image_url
+    @node["src"] = @image.file.url(@meta.image_size)
     @node["class"] = image_class if image_class
     @node
   end
@@ -18,15 +18,5 @@ class Markdown::ImageNode
     else
       @meta.image_class
     end
-  end
-
-  def find_image
-    Image.find_by(id: @meta.image_id) || NullImage
-  end
-
-  def image_url
-    @image.file.url(@meta.image_size)
-  rescue
-    NullImage.path
   end
 end
