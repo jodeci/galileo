@@ -5,6 +5,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :auto_orient
   process :store_exif_data
 
+  LARGE = 800
+  MEDIUM = 500
+  THUMB = 100
+
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
@@ -14,15 +18,15 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :large do
-    process resize_to_limit: [800, 800]
+    process resize_to_limit: [LARGE, LARGE]
   end
 
   version :medium, from_version: :large do
-    process resize_to_limit: [500, 500]
+    process resize_to_limit: [MEDIUM, MEDIUM]
   end
 
   version :thumb, from_version: :medium do
-    process resize_to_fill: [100, 100]
+    process resize_to_fill: [THUMB, THUMB]
   end
 
   private
