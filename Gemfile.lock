@@ -53,6 +53,8 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
+    codeclimate-test-reporter (1.0.4)
+      simplecov
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -62,7 +64,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.4)
     crass (1.0.2)
-    database_cleaner (1.5.3)
+    database_rewinder (0.6.5)
     debug_inspector (0.0.2)
     devise (4.2.0)
       bcrypt (~> 3.0)
@@ -71,6 +73,7 @@ GEM
       responders
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    docile (1.1.5)
     erubis (2.7.0)
     execjs (2.7.0)
     exifr (1.2.5)
@@ -111,6 +114,7 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
+    json (2.0.2)
     jurou (0.1.3)
       actionview (~> 5.0)
       activesupport (~> 5.0)
@@ -214,6 +218,11 @@ GEM
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
+    simplecov (0.12.0)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.0)
     slim (3.0.7)
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
@@ -263,8 +272,9 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   carrierwave
+  codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
-  database_cleaner
+  database_rewinder
   devise
   exifr
   factory_girl_rails
@@ -293,6 +303,7 @@ DEPENDENCIES
   shikigami
   shoulda-matchers
   simple_form
+  simplecov
   slim
   spring
   spring-watcher-listen (~> 2.0.0)

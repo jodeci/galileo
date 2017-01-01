@@ -56,7 +56,10 @@ group :test do
   gem "factory_girl_rails"
   gem "faker"
   gem "shoulda-matchers"
-  gem "database_cleaner"
+  # gem "database_cleaner"
+  gem "database_rewinder"
+  gem "simplecov"
+  gem "codeclimate-test-reporter", "~> 1.0.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
