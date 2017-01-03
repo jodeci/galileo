@@ -2,7 +2,10 @@
 require "rails_helper"
 
 RSpec.describe Image, type: :model do
-  before { FactoryGirl.create(:image) }
+  before do
+    FactoryGirl.create(:image)
+  end
+
   let(:image) { Image.first }
 
   describe ".fetch" do
