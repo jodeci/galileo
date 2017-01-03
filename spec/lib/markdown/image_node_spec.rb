@@ -12,7 +12,7 @@ RSpec.describe Markdown::ImageNode do
         it "replaces image_id with the default image url (large)" do
           node["src"] = image.id
           image_node = Markdown::ImageNode.new(node).replace_image
-          expect(image_node["src"]).to eq "/uploads/image/file/1/large_test.jpg"
+          expect(image_node["src"]).to eq "/spec/support/uploads/image/file/1/large_test.jpg"
         end
       end
 
@@ -20,7 +20,7 @@ RSpec.describe Markdown::ImageNode do
         it "replaces image_id with the relevant image url" do
           node["src"] = "#{image.id}|s"
           image_node = Markdown::ImageNode.new(node).replace_image
-          expect(image_node["src"]).to eq "/uploads/image/file/1/thumb_test.jpg"
+          expect(image_node["src"]).to eq "/spec/support/uploads/image/file/1/thumb_test.jpg"
         end
       end
 

@@ -14,14 +14,14 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe "#image_tag_l_by_id" do
-    it { expect(image_tag_l_by_id(1)).to eq '<img src="/uploads/image/file/1/large_test.jpg" alt="Large test" />' }
+    it { expect(image_tag_l_by_id(1)).to eq '<img src="/spec/support/uploads/image/file/1/large_test.jpg" alt="Large test" />' }
   end
 
   describe "#image_tag_m_by_id" do
-    it { expect(image_tag_m_by_id(1)).to eq '<img src="/uploads/image/file/1/medium_test.jpg" alt="Medium test" />' }
+    it { expect(image_tag_m_by_id(1)).to eq '<img src="/spec/support/uploads/image/file/1/medium_test.jpg" alt="Medium test" />' }
   end
 
   describe "#image_tag_s_by_id" do
-    it { expect(image_tag_s_by_id(1)).to eq '<img src="/uploads/image/file/1/thumb_test.jpg" alt="Thumb test" />' }
+    it { expect(image_tag_s_by_id(1)).to eq '<img src="/spec/support/uploads/image/file/1/thumb_test.jpg" alt="Thumb test" />' }
   end
 end

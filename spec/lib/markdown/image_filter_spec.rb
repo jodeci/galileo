@@ -11,17 +11,17 @@ RSpec.describe Markdown::ImageFilter do
 
   context "id|size" do
     let(:doc) { %Q{<img src="1|s">} }
-    it { expect(subject).to eq '<img src="/uploads/image/file/1/thumb_test.jpg">' }
+    it { expect(subject).to eq '<img src="/spec/support/uploads/image/file/1/thumb_test.jpg">' }
   end
 
   context "id||class" do
     let(:doc) { %Q{<img src="1||my_class">} }
-    it { expect(subject).to eq '<img src="/uploads/image/file/1/large_test.jpg" class="my_class">' }
+    it { expect(subject).to eq '<img src="/spec/support/uploads/image/file/1/large_test.jpg" class="my_class">' }
   end
 
   context "id|size|class" do
     let(:doc) { %Q{<img src="1|m|my_class">} }
-    it { expect(subject).to eq '<img src="/uploads/image/file/1/medium_test.jpg" class="my_class">' }
+    it { expect(subject).to eq '<img src="/spec/support/uploads/image/file/1/medium_test.jpg" class="my_class">' }
   end
 
   context "nil" do

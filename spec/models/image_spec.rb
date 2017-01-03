@@ -20,14 +20,14 @@ RSpec.describe Image, type: :model do
   end
 
   describe "#large_url" do
-    it { expect(image.large_url).to eq "/uploads/image/file/1/large_test.jpg" }
+    it { expect(image.large_url).to eq "/spec/support/uploads/image/file/1/large_test.jpg" }
   end
 
   describe "#medium_url" do
-    it { expect(image.medium_url).to eq "/uploads/image/file/1/medium_test.jpg" }
+    it { expect(image.medium_url).to eq "/spec/support/uploads/image/file/1/medium_test.jpg" }
   end
 
   describe "#thumb_url" do
-    it { expect(image.thumb_url).to eq "/uploads/image/file/1/thumb_test.jpg" }
+    it { expect(image.thumb_url).to eq "/spec/support/uploads/image/file/1/thumb_test.jpg" }
   end
 end
