@@ -1,8 +1,8 @@
 # frozen_string_literal: true
-class Markdown::ImageNode
+class HtmlPipeline::ImageNode
   def initialize(node)
     @node = node
-    @meta = Markdown::ImageMeta.new(node["src"])
+    @meta = HtmlPipeline::ImageMeta.new(node["src"])
     @image = Image.fetch(@meta.image_id)
   end
 

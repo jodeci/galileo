@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Markdown::NoHtmlFilter < HTML::Pipeline::MarkdownFilter
+class HtmlPipeline::MarkdownFilter < HTML::Pipeline::MarkdownFilter
   def initialize(text, context = nil, result = nil)
     super text, context, result
     @text = text

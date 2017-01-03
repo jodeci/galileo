@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 require "rails_helper"
 
-RSpec.describe Markdown::ImageFilter do
+RSpec.describe HtmlPipeline::ImageFilter do
   before { FactoryGirl.create(:image) }
 
   subject do
-    filter = Markdown::ImageFilter.new(doc)
+    filter = HtmlPipeline::ImageFilter.new(doc)
     filter.call.to_s
   end
 

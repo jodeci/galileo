@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Markdown::EmojiFilter < HTML::Pipeline::Filter
+class HtmlPipeline::EmojiFilter < HTML::Pipeline::Filter
   def call
     Twemoji.parse(
       doc,

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 module ApplicationHelper
   def markdownify(content)
-    Markdown::Renderer.new(content).call
+    HtmlPipeline::MarkdownRenderer.new(content).call
   end
 
   def exif_data(exif)

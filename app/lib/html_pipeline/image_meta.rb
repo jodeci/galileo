@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Markdown::ImageMeta
+class HtmlPipeline::ImageMeta
   attr_reader :image_id, :image_size, :image_class
 
   def initialize(src)
