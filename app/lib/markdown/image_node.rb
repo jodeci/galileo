@@ -12,6 +12,8 @@ class Markdown::ImageNode
     @node
   end
 
+  private
+
   def image_class
     if @image == NullImage
       "no_image"

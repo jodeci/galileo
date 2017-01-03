@@ -7,19 +7,19 @@ RSpec.describe NullImage, type: :model do
   end
 
   describe ".asset_path" do
-    it { expect(NullImage.asset_path("large")).to match(%r{^/assets/no_image_large-[\w\d]*.png}) }
+    it { expect(NullImage.asset_path("large")).to eq("/assets/no_image_large.png") }
   end
 
   describe ".large_url" do
-    it { expect(NullImage.large_url).to match(%r{^/assets/no_image_large-[\w\d]*.png}) }
+    it { expect(NullImage.large_url).to eq("/assets/no_image_large.png") }
   end
 
   describe ".medium_url" do
-    it { expect(NullImage.medium_url).to match(%r{^/assets/no_image_medium-[\w\d]*.png}) }
+    it { expect(NullImage.medium_url).to eq("/assets/no_image_medium.png") }
   end
 
   describe ".thumb_url" do
-    it { expect(NullImage.thumb_url).to match(%r{^/assets/no_image_thumb-[\w\d]*.png}) }
+    it { expect(NullImage.thumb_url).to eq("/assets/no_image_thumb.png") }
   end
 end
 

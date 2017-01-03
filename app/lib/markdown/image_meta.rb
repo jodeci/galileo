@@ -7,10 +7,6 @@ class Markdown::ImageMeta
     @image = parse_image
   end
 
-  def parse_image
-    URI.unescape(@src).match(/^([\w\d\.]+)(?:\|(\w*))?(?:\|([\w\s\d]+))?$/)
-  end
-
   def image_id
     @image[1]
   end
@@ -27,5 +23,11 @@ class Markdown::ImageMeta
 
   def image_class
     @image[3]
+  end
+
+  private
+
+  def parse_image
+    URI.unescape(@src).match(/^([\w\d\.]+)(?:\|(\w*))?(?:\|([\w\s\d]+))?$/)
   end
 end
