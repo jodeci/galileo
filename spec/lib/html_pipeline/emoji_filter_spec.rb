@@ -7,7 +7,7 @@ RSpec.describe HtmlPipeline::EmojiFilter do
     filter.call.to_s
   end
 
-  context ":heart:" do
+  context "input: :heart:" do
     let(:doc) { ":heart:" }
     it { expect(subject).to eq '<img draggable="false" title=":heart:" alt="❤" src="https://twemoji.maxcdn.com/2/svg/2764.svg" class="emoji">' }
   end
