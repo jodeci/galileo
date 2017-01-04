@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 require "rails_helper"
 
-RSpec.describe HtmlPipeline::ImageNode do
+RSpec.describe HtmlPipeline::ImageFilter::ImageNode do
   before { FactoryGirl.create(:image) }
-  let(:image) { Image.first }
 
   subject do
     node = Nokogiri::XML::Node.new("img", Nokogiri::HTML::Document.new)
     node["src"] = src
-    HtmlPipeline::ImageNode.new(node)
+    HtmlPipeline::ImageFilter::ImageNode.new(node)
   end
 
   describe "#replace_image" do

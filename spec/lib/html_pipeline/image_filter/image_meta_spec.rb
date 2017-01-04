@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 require "rails_helper"
 
-RSpec.describe HtmlPipeline::ImageMeta do
-  subject { HtmlPipeline::ImageMeta.new(src) }
+RSpec.describe HtmlPipeline::ImageFilter::ImageMeta do
+  subject { HtmlPipeline::ImageFilter::ImageMeta.new(src) }
 
   describe "#image_id" do
     let(:src) { "1" }
