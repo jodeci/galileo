@@ -3,15 +3,15 @@ h1 = jr_simple_title
   table.table
     tr
       th #
-      th = jr_attr :title, :post
-      th = jr_attr :status, :post
-      th = jr_attr :tag_list, :post
+      th = jr_attr :title
+      th = jr_attr :status
+      th = jr_attr :tag_list
       th = t("actions._label")
     - current_collection.each do |item|
       tr
         td = item.id
         td = item.title
-        td = jr_value :status, :post, item.status
+        td = jr_value :status, item.status
         td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_posts_taglist_path(tag) }), ", ")
         td.actions 
           = bs_btn :show, dashboard_post_path(item.id)
