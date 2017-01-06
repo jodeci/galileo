@@ -58,6 +58,7 @@ zh-TW:
         tag_list: 標籤
         file: 圖檔
         thumb: 縮圖
+        exif: 相片資訊
 
       acts_as_taggable_on/tag:
         name: 標籤

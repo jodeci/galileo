@@ -1,4 +1,6 @@
 div.image = image_tag current_object.file.large.url
-p = current_object.caption
-p = exif_data current_object.exif
-p = current_object.tag_list
+
+table.table
+  = jr_row :caption, current_object.caption
+  = jr_row :exif, exif_data(current_object.exif)
+  = jr_row :tag_list, current_object.tag_list
