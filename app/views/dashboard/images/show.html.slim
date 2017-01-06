@@ -1,6 +1,6 @@
 div.image = image_tag current_object.file.large.url
 
 table.table
-  = jr_row :caption, current_object.caption
+  = jr_row :caption
   = jr_row :exif, exif_data(current_object.exif)
-  = jr_row :tag_list, current_object.tag_list
+  = jr_row :tag_list
