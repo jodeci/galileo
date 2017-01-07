@@ -8,6 +8,9 @@ addons:
         repo_token: bdff0f4312fdaa2228f43014d4328950571cf9e55cc92a2262080c6bf302f6ea
 
 script:
+  - cp config/database.yml.sample config/database.yml
+  - cp config/secrets.yml.sample config/secrets.yml
+  - cp config/application.yml.sample config/application.yml
   - bundle exec rake db:create
   - bundle exec rake db:migrate
   - bundle exec rspec spec --format documentation
