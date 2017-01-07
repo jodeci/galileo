@@ -3,9 +3,14 @@ language: ruby
 rvm:
   - 2.3.1
 before_install: gem install bundler -v 1.13.2
+
+services:
+  - postgresql
+
 addons:
-    code_climate:
-        repo_token: bdff0f4312fdaa2228f43014d4328950571cf9e55cc92a2262080c6bf302f6ea
+  postgresql: "9.4"
+  code_climate:
+    repo_token: bdff0f4312fdaa2228f43014d4328950571cf9e55cc92a2262080c6bf302f6ea
 
 script:
   - cp config/database.yml.sample config/database.yml
