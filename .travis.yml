@@ -1,0 +1,16 @@
+sudo: false
+language: ruby
+rvm:
+  - 2.3.1
+before_install: gem install bundler -v 1.13.2
+addons:
+    code_climate:
+        repo_token: bdff0f4312fdaa2228f43014d4328950571cf9e55cc92a2262080c6bf302f6ea
+
+script:
+  - bundle exec rake db:create
+  - bundle exec rake db:migrate
+  - bundle exec rspec spec --format documentation
+
+after_success:
+  - bundle exec codeclimate-test-reporter
