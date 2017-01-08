@@ -23,7 +23,6 @@ SimpleCov.start "rails" do
   add_filter "app/mailers"
   add_filter "app/inputs"
   add_filter "app/uploaders"
-  add_filter "app/controllers"
 end
 
 RSpec.configure do |config|
