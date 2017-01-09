@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: "registrations" }
 
-  root "pages#index"
+  root "frontend/pages#index"
 
-  get :dashboard, to: "dashboard/pages#index"
+  scope module: :frontend do
+    resources :posts, only: [:index, :show]
+  end
 
   namespace :dashboard do
+    get "/", to: "pages#index"
     resources :posts
     get "posts/taglist/:name", to: "posts#taglist", as: :posts_taglist
 
