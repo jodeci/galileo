@@ -12,6 +12,7 @@ gem 'jquery-turbolinks'
 gem "turbolinks", "~> 5.x"
 gem "jbuilder", "~> 2.5"
 gem "bootstrap-sass"
+gem "foundation-rails"
 gem "slim"
 gem "simple_form"
 gem "devise"
