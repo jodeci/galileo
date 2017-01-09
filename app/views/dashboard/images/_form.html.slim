@@ -1,5 +1,6 @@
 = simple_form_for [:dashboard, current_object] do |f|
   = f.input :caption
   = f.input :tag_list, input_html: { value: current_object.tag_list.to_s }, hint: t("hints.post.tag_list")
-  = f.input :file, as: :file, required: true
+  = f.input :file, as: :file, required: ( current_object.file? ? false : true)
+  = f.hidden_field :file_cache
   = f.submit
