@@ -13,11 +13,15 @@ if defined?(CarrierWave)
 
       def store_dir
         if Rails.env.test?
-          "spec/support/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+          "spec/support/uploads/#{storage_path_by_model}"
         else
-          "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+          "uploads/#{storage_path_by_model}"
         end
       end 
+
+      def storage_path_by_model
+        "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+      end
     end 
   end 
 end
