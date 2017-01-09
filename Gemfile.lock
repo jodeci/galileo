@@ -209,7 +209,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    shikigami (0.1.9)
+    shikigami (0.1.10)
       activesupport (~> 5.0)
       kaminari (~> 0.17)
       rails (~> 5.0)
