@@ -10,7 +10,10 @@ zh-TW:
 
     page_titles:
       pages:
-        index: 首頁
+        index: 大門
+
+      posts:
+        index: 書房
 
       registrations:
         new: 新建帳號
