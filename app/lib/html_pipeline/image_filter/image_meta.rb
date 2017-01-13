@@ -16,8 +16,7 @@ class HtmlPipeline::ImageFilter::ImageMeta
     when "l", "large" then "large"
     when "m", "medium" then "medium"
     when "s", "small", "thumb" then "thumb"
-    else
-      "large"
+    else "large"
     end
   end
 

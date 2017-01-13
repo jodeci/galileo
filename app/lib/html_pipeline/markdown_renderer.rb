@@ -9,15 +9,23 @@ class HtmlPipeline::MarkdownRenderer
   end
 
   def call
-    pipeline_context = { gfm: true, whitelist: @whitelist }
-    pipeline = HTML::Pipeline.new [
+    # rubocop: disable OutputSafety
+    pipeline.call(content)[:output].to_s.html_safe
+  end
+
+  private
+
+  def pipeline
+    HTML::Pipeline.new [
       HtmlPipeline::MarkdownFilter,
       HtmlPipeline::ImageFilter,
       HtmlPipeline::EmojiFilter,
       HTML::Pipeline::SanitizationFilter,
       HTML::Pipeline::RougeFilter,
-    ], pipeline_context
-    # rubocop: disable OutputSafety
-    pipeline.call(content)[:output].to_s.html_safe
+    ], context
+  end
+
+  def context
+    { gfm: true, whitelist: @whitelist }
   end
 end
