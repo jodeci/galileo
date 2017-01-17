@@ -1,14 +1,82 @@
 .row {
-  max-width: 1200px;
+  max-width: 100%;
 }
 
-.footer {
-  background-color: #292c2f;
-  font-size: 1.2rem;
-  padding: 0.5rem;
+nav.menu {
+  background-color: $header-background;
+  padding: 0.5rem 0;
+  @include breakpoint(medium) {
+    height: 2.5rem;
+  }
+
+  .name {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin: 0 0 1rem 0;
+    color: #fff;
+    @include breakpoint(medium) {
+      margin-left: 1rem;
+      float: left;
+    }
+
+    i {
+      color: $primary-color;
+      margin-right: 0.5rem;
+    }
+  }
 
   .inline-list {
-    margin-left: 0;
+    text-align: center;
+    @include breakpoint(medium) {
+      float: right;
+    }
+
+    li {
+      display: inline-block;
+      margin-right: 1.375rem;
+    }
+
+    a {
+      color: #fff;
+      padding-bottom: 0.5rem;
+
+      &:hover {
+        color: $primary-color;
+        transition: all .3s ease-in-out;
+        @include breakpoint(medium) {
+          border-bottom: 2px solid $primary-color;
+        }
+      }
+    }
+
+    .active a {
+      color: $primary-color;
+    }
+  }
+}
+
+main {
+  height: 10rem;
+}
+
+footer.footer {
+  background-color: $footer-background;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+
+  .inline-list {
+    margin: 0;
+    text-align: center;
+    float: none;
+    @include breakpoint(medium) {
+      float: left;
+    }
+
+    li {
+      float: none;
+      display: inline-block;
+    }
 
     a {
       display: inline-block;
@@ -16,11 +84,14 @@
       height: 2rem;
       background-color: #33383b;
       border-radius: 2px;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       color: #fff;
       text-align: center;
-      line-height: 35px;
       margin: 0 3px 0 0;
+    }
+
+    a.dashboard {
+      background-color: $alert-color;
     }
   }
 
@@ -28,52 +99,18 @@
     color: #8f9296;
     font-size: 0.875rem;
     margin: 0.5rem 0 0 0;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: right;
+    }
   }
 
-  .footer-links a {
-    list-style: none;
-    font-weight: normal;
+  .logo {
     color: #fff;
     margin: 0;
-    font-size: 0.875rem;
-    
-    &::after {
-      content: "•";
-      padding: 0 0.2rem 0 0.4rem;
-    }
-    
-    &:last-child::after {
-      content: "";
-      padding: 0 0.4rem 0 0.8rem;
-    }
-  }
-
-  @media only screen and (min-width: 40.063em) {
-    
-    p {
-      text-align: left;
-    }
-    
-    .social {
-      text-align: left;
-      margin: 0;
-    }
-    
-    .contact {
-      text-align: left;
-      > i {
-        margin-right: 1rem;
-      }
-    }
-    
-  }
-}
- 
-.logo {
-  color: #fff;
-  margin: 0;
   
-  i {
-    margin-right: 0.5rem;
+    i {
+      margin-right: 0.5rem;
+    }
   }
 }
