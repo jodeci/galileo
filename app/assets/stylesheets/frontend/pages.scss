@@ -75,14 +75,9 @@ nav.menu {
 main {
   padding: 0.5rem 1rem;
 
-  a {
-    text-decoration: underline;
-  }
-
   a[rel="external"]:hover {
     color: $frame-background;
     background: $frame-contrast;
-    text-decoration: none;
   }
 }
 

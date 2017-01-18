@@ -20,6 +20,7 @@ gem "simple_form"
 gem "devise"
 gem "kaminari", "~> 1.0"
 gem "stateful_enum"
+gem "active_decorator"
 gem "jurou"
 gem "shikigami"
 

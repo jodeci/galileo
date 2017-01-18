@@ -12,7 +12,25 @@
 
       a {
         margin-right: 0.5rem;
-        text-decoration: none;
+      }
+    }
+
+    .headline {
+      margin-top: 0.5rem;
+    }
+
+    .cover_image {
+      margin: 5px 0.5rem 0.5rem 0;
+
+      .thumbnail {
+        margin-bottom: 0;
+      }
+    }
+
+    .abstract {
+      margin-top: 0;
+      i {
+        margin-left: 0.2em;
       }
     }
   }

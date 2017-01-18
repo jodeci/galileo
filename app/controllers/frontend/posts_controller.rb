@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 class Frontend::PostsController < Frontend::BaseController
+  def index
+    current_collection
+  end
+
   private
 
   def collection_scope

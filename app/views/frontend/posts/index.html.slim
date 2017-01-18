@@ -1,14 +1,12 @@
 - if current_collection.any?
   - current_collection.each do |item|
-    h2 = item.title
-    = taglist_with_icons(item.tag_list)
+    .row
+      h2 = item.title
+      = item.taglist_with_icons
+      = item.headline
 
-    - if item.cover_image
-      .cover = image_tag_by_id(item.cover_image)
-
-    p.abstract 
-      = item.abstract
-      = link_to foundation_icon("page"), post_path(item)
+  = paginate current_collection
 
 - else
   = no_data_alert
+
