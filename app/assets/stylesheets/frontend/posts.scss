@@ -7,7 +7,7 @@
     .tags {
       i {
         margin-right: 0.2rem;
-        color: #889fb8;
+        color: $body-icon;
       }
 
       a {
@@ -31,6 +31,16 @@
       margin-top: 0;
       i {
         margin-left: 0.2em;
+      }
+    }
+  }
+
+  &#index {
+    main .row {
+      border-bottom: 2px dashed $body-border;
+
+      &:last-child {
+        border: none;
       }
     }
   }
