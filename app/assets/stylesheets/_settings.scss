@@ -61,7 +61,6 @@ $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-font-color: $black;
 $body-font-family: 'Helvetica Neue', Helvetica, Roboto, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
@@ -75,9 +74,10 @@ $print-transparent-backgrounds: true;
 
 // customized
 $body-background: #eef9f7;
+$body-font-color: #203042;
 $viewport-background: #456990;
 $frame-background: #2c435c;
-$frame-background-darker: #203042;
+$frame-background-darker: $body-font-color;
 $frame-text: $body-background;
 $frame-contrast: #eeb868;
 

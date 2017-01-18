@@ -1,0 +1,14 @@
+- if current_collection.any?
+  - current_collection.each do |item|
+    h2 = item.title
+    = taglist_with_icons(item.tag_list)
+
+    - if item.cover_image
+      .cover = image_tag_by_id(item.cover_image)
+
+    p.abstract 
+      = item.abstract
+      = link_to foundation_icon("page"), post_path(item)
+
+- else
+  = no_data_alert

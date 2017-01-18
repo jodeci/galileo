@@ -1,0 +1,19 @@
+.frontend-posts {
+  main {
+    h2 {
+      margin: 0;
+    }
+
+    .tags {
+      i {
+        margin-right: 0.2rem;
+        color: #889fb8;
+      }
+
+      a {
+        margin-right: 0.5rem;
+        text-decoration: none;
+      }
+    }
+  }
+}

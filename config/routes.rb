@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   scope module: :frontend do
     resources :posts, only: [:index, :show]
+    get "posts/taglist/:name", to: "posts#taglist", as: :posts_taglist
   end
 
   namespace :dashboard do

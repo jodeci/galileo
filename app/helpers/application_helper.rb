@@ -22,4 +22,24 @@ module ApplicationHelper
   end
 
   alias image_tag_by_id image_tag_m_by_id
+
+  def foundation_icon(name)
+    content_tag :i, nil, class: "fi-#{name}"
+  end
+
+  def taglist_with_icons(tags)
+    return unless tags.any?
+    content_tag :div, nil, class: "tags" do
+      tag_with_icon(tags)
+    end
+  end
+
+  private
+
+  def tag_with_icon(tags)
+    tags.map do |tag|
+      concat foundation_icon("price-tag")
+      concat link_to tag, posts_taglist_path(tag)
+    end
+  end
 end
