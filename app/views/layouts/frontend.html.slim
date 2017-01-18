@@ -10,7 +10,8 @@ html
     = csrf_meta_tag
 
   body class="frontend-#{controller_name}" id="#{action_name}"
-    == render "layouts/frontend/navigation"
-    main[role="main"]
-      == yield
-    == render "layouts/frontend/footer"
+    div.wrapper
+      == render "layouts/frontend/navigation"
+      main[role="main"]
+        == yield
+      == render "layouts/frontend/footer"

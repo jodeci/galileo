@@ -1,27 +1,34 @@
+body {
+  background-color: $viewport-background;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1000px;
+  border: 1px solid $frame-background;
+  background: $body-background;
+}
+
 .row {
   max-width: 100%;
 }
 
 nav.menu {
-  background-color: $header-background;
-  padding: 0.5rem 0;
-  @include breakpoint(medium) {
-    height: 2.5rem;
-  }
+  background-color: $frame-background;
+  padding-top: 0.5em;
 
   .name {
     text-align: center;
     font-size: 1.5rem;
     line-height: 1;
     margin: 0 0 1rem 0;
-    color: #fff;
+    color: $frame-text;
     @include breakpoint(medium) {
-      margin-left: 1rem;
-      float: left;
+      text-align: left;
     }
 
     i {
-      color: $primary-color;
+      color: $frame-contrast;
       margin-right: 0.5rem;
     }
   }
@@ -34,34 +41,43 @@ nav.menu {
 
     li {
       display: inline-block;
-      margin-right: 1.375rem;
+      margin: 0;
+      color: $frame-text;
+
+      &::after {
+        content: "•";
+        padding: 0 0.5em;
+      }
+    
+      &:last-child::after {
+        content: "";
+        padding: 0;
+      }
     }
 
+
     a {
-      color: #fff;
+      color: $frame-text;
       padding-bottom: 0.5rem;
 
       &:hover {
-        color: $primary-color;
+        color: $frame-contrast;
         transition: all .3s ease-in-out;
-        @include breakpoint(medium) {
-          border-bottom: 2px solid $primary-color;
-        }
       }
     }
 
     .active a {
-      color: $primary-color;
+      color: $frame-contrast;
     }
   }
 }
 
 main {
-  height: 10rem;
+  height: 10rem; // FIXME
 }
 
 footer.footer {
-  background-color: $footer-background;
+  background-color: $frame-background;
   font-size: 1.2rem;
   padding: 0.5rem 0;
 
@@ -82,10 +98,10 @@ footer.footer {
       display: inline-block;
       width: 2rem;
       height: 2rem;
-      background-color: #33383b;
+      background-color: $frame-background-darker;
       border-radius: 2px;
       font-size: 1.4rem;
-      color: #fff;
+      color: $frame-text;
       text-align: center;
       margin: 0 3px 0 0;
     }
@@ -96,21 +112,12 @@ footer.footer {
   }
 
   .copyright {
-    color: #8f9296;
+    color: $frame-text;
     font-size: 0.875rem;
     margin: 0.5rem 0 0 0;
     text-align: center;
     @include breakpoint(medium) {
       text-align: right;
-    }
-  }
-
-  .logo {
-    color: #fff;
-    margin: 0;
-  
-    i {
-      margin-right: 0.5rem;
     }
   }
 }
