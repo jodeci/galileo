@@ -1,27 +1,2 @@
 h1 = jr_simple_title
-- if current_collection.any?
-  table.table
-    tr
-      th #
-      th = jr_attr :title
-      th = jr_attr :status
-      th = jr_attr :tag_list
-      th = jr_attr :published_at
-      th = t("actions._label")
-    - current_collection.each do |item|
-      tr
-        td = item.id
-        td = item.title
-        td = item.status_translated
-        td = item.taglist_for_dashboard
-        td = item.published_date
-        td.actions 
-          = bs_btn :show, dashboard_post_path(item.id)
-          = bs_btn :edit, edit_dashboard_post_path(item.id)
-          = bs_btn :destroy, dashboard_post_path(item.id), method: :delete, confirm: true
-
-  .paginate
-    = paginate current_collection, theme: "bootstrap"
-
-- else
-  = no_data_alert
+= render "list"

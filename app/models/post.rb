@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class Post < ApplicationRecord
   include FriendlyId
-  friendly_id :slug, use: :slugged
+  friendly_id :slug, use: [:slugged, :finders]
   acts_as_taggable
 
   validates :title, presence: true
