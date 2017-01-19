@@ -19,7 +19,7 @@ h1 = jr_simple_title
           = bs_btn :destroy, dashboard_post_path(item.id), method: :delete, confirm: true
 
   .paginate
-    = paginate current_collection
+    = paginate current_collection, theme: "bootstrap"
 
 - else
   = no_data_alert
