@@ -2,9 +2,10 @@ footer.footer
   .row
     .small-12.medium-6.large-6.columns
       ul.inline-list
+        li = link_to foundation_icon("home"), Settings.profile.site, rel: "external"
+        li = link_to foundation_icon("social-github"), Settings.profile.github, rel: "external"
         li = link_to foundation_icon("social-facebook"), Settings.profile.facebook, rel: "external"
         li = link_to foundation_icon("social-twitter"), Settings.profile.twitter, rel: "external"
-        li = link_to foundation_icon("social-github"), Settings.profile.github, rel: "external"
         li = link_to foundation_icon("mail"), nil, title: Settings.profile.email
         - if signed_in?
           li = link_to foundation_icon("widget"), dashboard_path, class: "dashboard"
