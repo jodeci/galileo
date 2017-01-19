@@ -1,9 +1,20 @@
 # frozen_string_literal: true
 module PostDecorator
   def headline
+    access? ? public_headline : protected_headline
+  end
+
+  def public_headline
     content_tag :div, nil, class: "headline" do
       concat cover_image_block
       concat abstract_block
+    end
+  end
+
+  def protected_headline
+    content_tag :p, nil, class: "abstract" do
+      concat "these are not the droids you are looking for"
+      concat link_to foundation_icon("lock"), post_path(slug)
     end
   end
 
@@ -15,11 +26,8 @@ module PostDecorator
   end
 
   def published_date
-    if published_at
-      published_at.strftime("%Y-%m-%d")
-    else
-      "oops"
-    end
+    return unless published_at
+    published_at.strftime("%Y-%m-%d")
   end
 
   def status_translated
@@ -73,6 +81,14 @@ module PostDecorator
     content_tag :span, nil, class: "date" do
       concat foundation_icon("calendar")
       concat published_date
+    end
+  end
+
+  def access?
+    if status == "public"
+      true
+    else
+      false # TODO: based on session password
     end
   end
 end
