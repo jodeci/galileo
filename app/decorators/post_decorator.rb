@@ -2,7 +2,7 @@
 module PostDecorator
   def headline
     content_tag :div, nil, class: "headline" do
-      concat cover_link
+      concat cover_image_block
       concat abstract_block
     end
   end
@@ -23,7 +23,7 @@ module PostDecorator
     end
   end
 
-  def cover_link
+  def cover_image_block
     return unless cover_image
     content_tag :div, nil, class: cover_image_class do
       link_to image_tag_by_id(cover_image, class: "thumbnail"), post_path(slug)
