@@ -6,13 +6,15 @@ h1 = jr_simple_title
       th = jr_attr :title
       th = jr_attr :status
       th = jr_attr :tag_list
+      th = jr_attr :published_at
       th = t("actions._label")
     - current_collection.each do |item|
       tr
         td = item.id
         td = item.title
-        td = jr_value :status, item.status
-        td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_posts_taglist_path(tag) }), ", ")
+        td = item.status_translated
+        td = item.taglist_for_dashboard
+        td = item.published_date
         td.actions 
           = bs_btn :show, dashboard_post_path(item.id)
           = bs_btn :edit, edit_dashboard_post_path(item.id)

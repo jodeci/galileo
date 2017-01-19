@@ -1,4 +1,4 @@
 # frozen_string_literal: true
-class Frontend::BaseController < Shikigami::BaseController
+class Frontend::BaseController < ::BaseController
   layout "frontend"
 end

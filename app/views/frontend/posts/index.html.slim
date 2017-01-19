@@ -2,7 +2,7 @@
   - current_collection.each do |item|
     .row
       h2 = item.title
-      = item.taglist_with_icons
+      = item.meta
       = item.headline
 
   = paginate current_collection, theme: "foundation"

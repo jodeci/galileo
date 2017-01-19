@@ -7,11 +7,27 @@ module PostDecorator
     end
   end
 
-  def taglist_with_icons
-    return unless tag_list.any?
-    content_tag :div, nil, class: "tags" do
+  def meta
+    content_tag :div, nil, class: "meta" do
+      concat date_with_icon
       tag_with_icon
     end
+  end
+
+  def published_date
+    if published_at
+      published_at.strftime("%Y-%m-%d")
+    else
+      "oops"
+    end
+  end
+
+  def status_translated
+    jr_value :status, status
+  end
+
+  def taglist_for_dashboard
+    safe_join((tag_list.map { |tag| link_to tag, dashboard_posts_taglist_path(tag) }), ", ")
   end
 
   private
@@ -50,6 +66,13 @@ module PostDecorator
       link_to t("misc.read_more"), post_path(slug)
     else
       abstract
+    end
+  end
+
+  def date_with_icon
+    content_tag :span, nil, class: "date" do
+      concat foundation_icon("calendar")
+      concat published_date
     end
   end
 end
