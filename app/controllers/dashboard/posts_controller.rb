@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 class Dashboard::PostsController < Dashboard::BaseController
   def taglist
+    @current_collection = ::Post.tagged_with(params[:name]).page(params[:page])
   end
 
   private
 
   def collection_scope
-    if params[:name]
-      ::Post.tagged_with(params[:name])
+    if params[:id]
+      ::Post
     else
       ::Post.order(id: :desc)
     end
