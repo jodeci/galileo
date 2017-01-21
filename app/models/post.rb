@@ -16,11 +16,11 @@ class Post < ApplicationRecord
       .order(published_at: :desc)
   }
 
-  def accessible?
-    if status == "public"
-      true
-    else
-      false # TODO: based on session password
-    end
+  def public?
+    status == "public"
+  end
+
+  def protected?
+    status == "protected"
   end
 end

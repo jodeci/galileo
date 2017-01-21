@@ -2,7 +2,7 @@
 FactoryGirl.define do
   factory :post do
     title { Faker::Book.title }
-    slug { Faker::Internet.slug("foo bar", "-") }
+    slug { Faker::Lorem.words(4, true).join("-") }
     cover_image { 1 }
 
     trait :public do
@@ -13,6 +13,10 @@ FactoryGirl.define do
     trait :protected do
       status { "protected" }
       published_at { Time.zone.parse("2014-03-18") }
+    end
+
+    trait :draft do
+      status { "draft" }
     end
   end
 end

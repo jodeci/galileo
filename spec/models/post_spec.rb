@@ -2,6 +2,10 @@
 require "rails_helper"
 
 RSpec.describe Post, type: :model do
+  let(:public_post) { FactoryGirl.create(:post, :public) }
+  let(:protected_post) { FactoryGirl.create(:post, :protected) }
+  let(:draft_post) { FactoryGirl.create(:post, :draft) }
+  let(:post_without_date) { FactoryGirl.create(:post, status: "public") }
   subject { FactoryGirl.build(:post) }
 
   describe "validations" do
@@ -27,5 +31,24 @@ RSpec.describe Post, type: :model do
       it { should validate_numericality_of(:cover_image) }
       it { should_not allow_value(-1).for(:cover_image) }
     end
+  end
+
+  describe "#public?" do
+    it { expect(public_post.public?).to be true }
+    it { expect(protected_post.public?).to be false }
+    it { expect(draft_post.public?).to be false }
+  end
+
+  describe "#protected?" do
+    it { expect(protected_post.protected?).to be true }
+    it { expect(public_post.protected?).to be false }
+    it { expect(draft_post.protected?).to be false }
+  end
+
+  describe ".published" do
+    it { expect(Post.published).to include(public_post) }
+    it { expect(Post.published).to include(protected_post) }
+    it { expect(Post.published).not_to include(draft_post) }
+    it { expect(Post.published).not_to include(post_without_date) }
   end
 end
