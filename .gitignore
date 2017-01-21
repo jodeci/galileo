@@ -17,8 +17,8 @@
 /coverage/*
 
 # Ignore uploads
-/public/uploads/*
-/public/spec/support/*
+/public/uploads/
+/public/spec/support/
 
 # Ignore Byebug command history file.
 /.byebug_history
