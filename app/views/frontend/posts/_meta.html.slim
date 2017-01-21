@@ -1,0 +1,9 @@
+.meta
+  span.date
+    = foundation_icon("calendar")
+    = post.published_date
+  - if post.tag_list.any?
+    span.tags
+      - post.tag_list.each do |tag|
+        = foundation_icon("price-tag")
+        = link_to tag, posts_taglist_path(tag)

@@ -1,7 +1,7 @@
-- if current_collection.any?
-  - current_collection.each do |item|
-    = render "headline", post: item
-  = paginate current_collection, theme: "foundation"
+- if @posts.any?
+  - @posts.each do |post|
+    = render "headline", post: post
+  = paginate @posts, theme: "foundation"
 
 - else
   = no_data_alert

@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 class Frontend::PostsController < Frontend::BaseController
-  def taglist
-    @current_collection = ::Post.published.tagged_with(params[:name]).page(params[:page])
+  def index
+    @posts = ::Post.published.page(params[:page])
   end
 
-  private
+  def taglist
+    @posts = ::Post.published.tagged_with(params[:name]).page(params[:page])
+  end
 
-  def collection_scope
-    ::Post.published
+  def show
+    @post = ::Post.published.find(params[:id])
   end
 end
