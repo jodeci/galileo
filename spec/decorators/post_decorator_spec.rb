@@ -15,6 +15,6 @@ describe PostDecorator, type: :decorator do
   end
 
   describe "#cover_image_tag" do
-    it { expect(decorated_post.cover_image_tag).to eq %{<img src="#{store_dir_prefix}/image/file/1/medium_test.jpg" alt="Medium test" />} }
+    it { expect(decorated_post.cover_image_tag).to eq %(<img src="#{store_dir_prefix}/image/file/1/medium_test.jpg" alt="Medium test" />) }
   end
 end
