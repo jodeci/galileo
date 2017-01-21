@@ -6,6 +6,10 @@ class Dashboard::PostsController < Dashboard::BaseController
 
   private
 
+  def current_object
+    @current_object ||= collection_scope.friendly.find(params[:id])
+  end
+
   def collection_scope
     if params[:id]
       ::Post

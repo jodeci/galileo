@@ -2,7 +2,8 @@ table.table
   = jr_row :title
   = jr_row :tag_list
   = jr_row :slug
+  = jr_row :published_at, current_object.published_date
   = jr_row_val :status
   = jr_row :abstract
-  = jr_row :cover_image, image_tag_by_id(current_object.cover_image)
+  = jr_row :cover_image, current_object.cover_image_tag
   = jr_row :body, markdownify(current_object.body)

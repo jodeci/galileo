@@ -8,4 +8,9 @@ module PostDecorator
   def status_translated
     jr_value :status, status, :post
   end
+
+  def cover_image_tag
+    return unless cover_image
+    image_tag_by_id(cover_image)
+  end
 end
