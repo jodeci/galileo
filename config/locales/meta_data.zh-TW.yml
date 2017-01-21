@@ -36,4 +36,5 @@ zh-TW:
 
   misc:
     site_name: 宅貓宅
-    read_more: 見全文
+    default_abstract: 見全文
+    hidden_abstract: these are not the droids you are looking for

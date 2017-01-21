@@ -1,10 +1,6 @@
 - if current_collection.any?
   - current_collection.each do |item|
-    .row
-      h2 = item.title
-      = item.meta
-      = item.headline
-
+    = render "headline", post: item
   = paginate current_collection, theme: "foundation"
 
 - else

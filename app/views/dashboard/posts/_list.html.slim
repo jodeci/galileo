@@ -12,7 +12,7 @@
         td = item.id
         td = item.title
         td = item.status_translated
-        td = item.taglist_for_dashboard
+        td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_posts_taglist_path(tag) }), ", ")
         td = item.published_date
         td.actions 
           = bs_btn :show, dashboard_post_path(item.id)
