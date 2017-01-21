@@ -21,17 +21,17 @@ RSpec.describe Image, type: :model do
 
   describe ".fetch_url" do
     context "when not given the size" do
-      it { expect(Image.fetch_url(1)).to eq "/spec/support/uploads/image/file/1/medium_test.jpg" }
+      it { expect(Image.fetch_url(1)).to eq "#{store_dir_prefix}/image/file/1/medium_test.jpg" }
     end
 
     context "when given a valid size" do
-      it { expect(Image.fetch_url(1, "large")).to eq "/spec/support/uploads/image/file/1/large_test.jpg" }
-      it { expect(Image.fetch_url(1, "medium")).to eq "/spec/support/uploads/image/file/1/medium_test.jpg" }
-      it { expect(Image.fetch_url(1, "thumb")).to eq "/spec/support/uploads/image/file/1/thumb_test.jpg" }
+      it { expect(Image.fetch_url(1, "large")).to eq "#{store_dir_prefix}/image/file/1/large_test.jpg" }
+      it { expect(Image.fetch_url(1, "medium")).to eq "#{store_dir_prefix}/image/file/1/medium_test.jpg" }
+      it { expect(Image.fetch_url(1, "thumb")).to eq "#{store_dir_prefix}/image/file/1/thumb_test.jpg" }
     end
 
     context "when the given size does not exist" do
-      it { expect(Image.fetch_url(1, "no_version")).to eq "/spec/support/uploads/image/file/1/medium_test.jpg" }
+      it { expect(Image.fetch_url(1, "no_version")).to eq "#{store_dir_prefix}/image/file/1/medium_test.jpg" }
     end
 
     context "when the image does not exist" do
@@ -40,14 +40,15 @@ RSpec.describe Image, type: :model do
   end
 
   describe "#large_url" do
-    it { expect(image.large_url).to eq "/spec/support/uploads/image/file/1/large_test.jpg" }
+    it { expect(image.large_url).to eq "#{store_dir_prefix}/image/file/1/large_test.jpg" }
   end
 
   describe "#medium_url" do
-    it { expect(image.medium_url).to eq "/spec/support/uploads/image/file/1/medium_test.jpg" }
+    it { expect(image.medium_url).to eq "#{store_dir_prefix}/image/file/1/medium_test.jpg" }
   end
 
   describe "#thumb_url" do
-    it { expect(image.thumb_url).to eq "/spec/support/uploads/image/file/1/thumb_test.jpg" }
+    it { expect(image.thumb_url).to eq "#{store_dir_prefix}/image/file/1/thumb_test.jpg" }
+    it { puts ImageUploader.store_dir }
   end
 end

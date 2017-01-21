@@ -16,14 +16,14 @@ RSpec.describe HtmlPipeline::ImageFilter::ImageNode do
     context "src: 1" do
       let(:src) { "1" }
       it "replaces image_id with the default image url (large)" do
-        expect(@image_node["src"]).to eq "/spec/support/uploads/image/file/1/large_test.jpg"
+        expect(@image_node["src"]).to eq "#{store_dir_prefix}/image/file/1/large_test.jpg"
       end
     end
 
     context "src: 1|s" do
       let(:src) { "1|s" }
       it "replaces image_id with the respective image url" do
-        expect(@image_node["src"]).to eq "/spec/support/uploads/image/file/1/thumb_test.jpg"
+        expect(@image_node["src"]).to eq "#{store_dir_prefix}/image/file/1/thumb_test.jpg"
       end
     end
 

@@ -1,26 +1,17 @@
 if defined?(CarrierWave)
-  ImageUploader
-  CarrierWave::Uploader::Base.descendants.each do |klass|
-    next if klass.anonymous?
-    klass.class_eval do
-      def cache_dir
-        if Rails.env.test?
-          "spec/support/uploads/tmp"
-        else
-          "uploads/tmp"
-        end
-      end 
+  if Rails.env.test?
+    ImageUploader
 
-      def store_dir
-        if Rails.env.test?
-          "spec/support/uploads/#{storage_path_by_model}"
-        else
-          "uploads/#{storage_path_by_model}"
-        end
-      end 
+    CarrierWave::Uploader::Base.descendants.each do |klass|
+      next if klass.anonymous?
+      klass.class_eval do
+        def cache_dir
+          "#{Rails.root}/spec/support/uploads/tmp"
+        end 
 
-      def storage_path_by_model
-        "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+        def store_dir
+          "#{Rails.root}/spec/support/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+        end
       end
     end 
   end 

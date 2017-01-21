@@ -5,6 +5,14 @@ class ImageUploader < CarrierWave::Uploader::Base
   process :auto_orient
   process :store_exif_data
 
+  def cache_dir
+    "uploads/tmp"
+  end
+
+  def store_dir
+    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end
@@ -31,6 +39,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def store_exif_data
+    Rails.logger.info "SPECTEST: #{file.inspect} #{model.inspect}"
     return unless file and model
     model.exif = EXIFR::JPEG.new(self.file.file).to_hash
   end

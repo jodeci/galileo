@@ -38,6 +38,7 @@ RSpec.configure do |config|
   # Remove this line if you"re not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include DecoratorSpecHelper, type: :decorator
+  config.include UploaderSpecHelper
 
   config.before(:suite) do
     DatabaseRewinder.clean_all
