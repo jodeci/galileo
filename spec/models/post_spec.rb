@@ -5,7 +5,6 @@ RSpec.describe Post, type: :model do
   let(:public_post) { FactoryGirl.create(:post, :public) }
   let(:protected_post) { FactoryGirl.create(:post, :protected) }
   let(:draft_post) { FactoryGirl.create(:post, :draft) }
-  let(:post_without_date) { FactoryGirl.create(:post, status: "public") }
   subject { FactoryGirl.build(:post) }
 
   describe "validations" do
@@ -31,6 +30,11 @@ RSpec.describe Post, type: :model do
       it { should validate_numericality_of(:cover_image) }
       it { should_not allow_value(-1).for(:cover_image) }
     end
+
+    context "for published_at" do
+      subject { FactoryGirl.build(:post, :public) }
+      it { should validate_presence_of(:published_at).with_message(I18n.t("validation.post.published_at_unless_draft")) }
+    end
   end
 
   describe "#public?" do
@@ -45,10 +49,15 @@ RSpec.describe Post, type: :model do
     it { expect(draft_post.protected?).to be false }
   end
 
+  describe "#draft?" do
+    it { expect(draft_post.draft?).to be true }
+    it { expect(public_post.draft?).to be false }
+    it { expect(protected_post.draft?).to be false }
+  end
+
   describe ".published" do
     it { expect(Post.published).to include(public_post) }
     it { expect(Post.published).to include(protected_post) }
     it { expect(Post.published).not_to include(draft_post) }
-    it { expect(Post.published).not_to include(post_without_date) }
   end
 end

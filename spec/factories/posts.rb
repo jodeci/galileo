@@ -12,7 +12,7 @@ FactoryGirl.define do
 
     trait :protected do
       status { "protected" }
-      published_at { Time.zone.parse("2014-03-18") }
+      published_at { Time.zone.parse("2014-03-23") }
     end
 
     trait :draft do

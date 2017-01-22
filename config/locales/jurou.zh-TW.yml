@@ -31,6 +31,7 @@ zh-TW:
         index: 文章列表
         new: 新增文章
         edit: 文章編輯
+        update: 文章編輯
         show: 文章預覽
         taglist: 文章列表
 
