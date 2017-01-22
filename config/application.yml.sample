@@ -1,0 +1,12 @@
+profile:
+  name: tsehau chao
+  email: jodeci {at} 5xruby {dot} tw
+  facebook: https://facebook.com/tsehau
+  twitter: https://twitter/thchao
+  github: https://github.com/jodeci/galileo
+  site: http://pagras.net
+  image: cover.jpg
+
+basic_auth:
+  user: user
+  password: password
