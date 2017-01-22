@@ -20,7 +20,7 @@ class Dashboard::PostsController < Dashboard::BaseController
 
   def resource_params
     params.require(:post).permit(
-      :title, :body, :published_at, :abstract, :cover_image, :status, :tag_list, :slug
+      :title, :body, :published_at, :abstract, :cover_image, :status, :tag_list, :slug, :featured
     )
   end
 end

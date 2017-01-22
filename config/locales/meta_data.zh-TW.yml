@@ -35,7 +35,7 @@ zh-TW:
       slug: 只允許英數和連接符號
     post:
       published_at_unless_draft: 非草稿文章需設定發表日期
-      
+      feature_only_public: 只能將公開文章設成精選  
 
   misc:
     site_name: 宅貓宅

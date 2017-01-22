@@ -7,4 +7,5 @@
   = f.input :abstract
   = f.input :body, as: :pagedown, input_html: { preview: false, rows: 10 }
   = f.input :status, collection: jr_collection(:status)
+  = f.input :featured
   = f.submit

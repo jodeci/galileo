@@ -5,6 +5,7 @@ RSpec.describe Post, type: :model do
   let(:public_post) { FactoryGirl.create(:post, :public) }
   let(:protected_post) { FactoryGirl.create(:post, :protected) }
   let(:draft_post) { FactoryGirl.create(:post, :draft) }
+  let(:featured_post) { FactoryGirl.create(:post, :public, featured: true) }
   subject { FactoryGirl.build(:post) }
 
   describe "validations" do
@@ -31,9 +32,25 @@ RSpec.describe Post, type: :model do
       it { should_not allow_value(-1).for(:cover_image) }
     end
 
+    context "for featured" do
+      it { should_not allow_value(true).for(:featured).with_message(I18n.t("validation.post.feature_only_public")) }
+
+      context "public" do
+        before { allow(subject).to receive(:status).and_return("public") }
+        it { should allow_value(true).for(:featured).with_message(I18n.t("validation.post.feature_only_public")) }
+      end
+    end
+
     context "for published_at" do
-      subject { FactoryGirl.build(:post, :public) }
-      it { should validate_presence_of(:published_at).with_message(I18n.t("validation.post.published_at_unless_draft")) }
+      context "public" do
+        before { allow(subject).to receive(:status).and_return("public") }
+        it { should validate_presence_of(:published_at).with_message(I18n.t("validation.post.published_at_unless_draft")) }
+      end
+
+      context "protected" do
+        before { allow(subject).to receive(:status).and_return("protected") }
+        it { should validate_presence_of(:published_at).with_message(I18n.t("validation.post.published_at_unless_draft")) }
+      end
     end
   end
 
@@ -59,5 +76,10 @@ RSpec.describe Post, type: :model do
     it { expect(Post.published).to include(public_post) }
     it { expect(Post.published).to include(protected_post) }
     it { expect(Post.published).not_to include(draft_post) }
+  end
+
+  describe ".featured" do
+    it { expect(Post.featured).to include(featured_post) }
+    it { expect(Post.featured).not_to include(public_post) }
   end
 end

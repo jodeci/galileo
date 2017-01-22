@@ -6,6 +6,7 @@
       th = jr_attr :status
       th = jr_attr :tag_list
       th = jr_attr :published_at
+      th = jr_attr :featured
       th = t("actions._label")
     - current_collection.each do |item|
       tr
@@ -14,6 +15,7 @@
         td = item.status_translated
         td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_posts_taglist_path(tag) }), ", ")
         td = item.published_date
+        td = t(item.featured.to_s)
         td.actions 
           = bs_btn :show, dashboard_post_path(item.id)
           = bs_btn :edit, edit_dashboard_post_path(item.id)

@@ -1,5 +1,5 @@
 .row
-  h2 = post.title
+  = render "frontend/posts/title", post: post
   = render "frontend/posts/meta", post: post
   .headline
     - if post.public?
