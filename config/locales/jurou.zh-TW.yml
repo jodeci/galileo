@@ -9,10 +9,10 @@ zh-TW:
     app_title: 伽利略
 
     page_titles:
-      pages:
+      frontend/pages:
         index: 大門
 
-      posts:
+      frontend/posts:
         index: 書房
 
       registrations:

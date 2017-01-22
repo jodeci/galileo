@@ -23,6 +23,7 @@ gem "stateful_enum"
 gem "active_decorator"
 gem "jurou"
 gem "shikigami"
+gem "meta-tags"
 
 # tagging and urls
 gem "acts-as-taggable-on", "~> 4.0"
