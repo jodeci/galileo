@@ -16,6 +16,13 @@ class Post < ApplicationRecord
       .order(published_at: :desc)
   }
 
+  scope :featured, -> {
+    where(status: "public")
+      .where("published_at IS NOT NULL")
+      .order(published_at: :desc)
+      .limit(5)
+  }
+
   def public?
     status == "public"
   end

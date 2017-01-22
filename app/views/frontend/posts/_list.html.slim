@@ -1,6 +1,6 @@
 - if @posts.any?
   - @posts.each do |post|
-    = render "headline", post: post
+    = render "frontend/posts/headline", post: post
   = paginate @posts, theme: "foundation"
 
 - else

@@ -1,6 +1,6 @@
 .row
   h2 = post.title
-  = render "meta", post: post
+  = render "frontend/posts/meta", post: post
   .headline
     - if post.public?
       - if post.cover_image?
