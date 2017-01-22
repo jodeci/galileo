@@ -1,4 +1,9 @@
-= jr_content_for_page_title(@post.title)
+- jr_content_for_page_title(@post.title)
+- set_meta_tags nofollow: true, noindex: true if @post.protected?
+- set_meta_tags description: @post.description, og: @post.open_graph
+
 h2 = @post.title
 = render "meta", post: @post
+- if @post.cover_image?
+  .cover_image = image_tag_by_id(@post.cover_image, "large", class: "thumbnail")
 = markdownify(@post.body)

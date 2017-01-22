@@ -34,11 +34,14 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+Rails.application.routes.default_url_options[:host] = "test.host"
+
 RSpec.configure do |config|
   # Remove this line if you"re not using ActiveRecord or ActiveRecord fixtures
   # config.fixture_path = "#{::Rails.root}/spec/fixtures"
   config.include DecoratorSpecHelper, type: :decorator
   config.include UploaderSpecHelper
+  config.include Rails.application.routes.url_helpers
 
   config.before(:suite) do
     DatabaseRewinder.clean_all

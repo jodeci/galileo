@@ -16,7 +16,12 @@ FactoryGirl.define do
     end
 
     trait :draft do
+      cover_image { nil }
       status { "draft" }
+    end
+
+    trait :abstract do
+      abstract { "abstract text" }
     end
   end
 end

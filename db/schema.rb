@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161220091000) do
+ActiveRecord::Schema.define(version: 20170122065259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20161220091000) do
   create_table "posts", force: :cascade do |t|
     t.string   "title",                          null: false
     t.text     "abstract"
-    t.text     "body"
+    t.text     "body",         default: ""
     t.string   "slug"
     t.integer  "cover_image"
     t.string   "status",       default: "draft"

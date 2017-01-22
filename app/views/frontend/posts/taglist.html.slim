@@ -1,3 +1,6 @@
+- jr_content_for_page_title params[:name]
+- set_meta_tags description: t("misc.default_description"), og: { title: "#{params[:name]} | #{jr_simple_title}", site: t("misc.site_name"), type: "website", url: request.original_url, description: t("misc.default_description"), image: image_url(Settings.profile.image) }
+
 h3
   = foundation_icon("pricetag-multiple") 
   = params[:name]
