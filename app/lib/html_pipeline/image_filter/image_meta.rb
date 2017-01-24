@@ -27,6 +27,6 @@ class HtmlPipeline::ImageFilter::ImageMeta
   private
 
   def parse_image
-    URI.unescape(@src).match(/^([\w\d\.]+)(?:\|(\w*))?(?:\|([\w\s\d]+))?$/)
+    URI.unescape(@src).match(%r{^([\w\d\.]+)(?:\|(\w*))?(?:\|([\w\s\d]+))?$})
   end
 end

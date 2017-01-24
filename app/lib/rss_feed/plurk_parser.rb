@@ -22,7 +22,7 @@ module RssFeed
     private
 
     def entries
-      open(@feed) { |rss| ::RSS::Parser.parse(rss).entries }
+      open(@feed) { |rss| RSS::Parser.parse(rss).entries }
     rescue OpenURI::HTTPError
       []
     end

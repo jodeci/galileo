@@ -5,5 +5,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  validates :username, format: { with: /\A\S*\z/, message: "no whitespace allowed" }
+  validates :username, format: { with: %r{\A\S*\z}, message: "no whitespace allowed" }
 end

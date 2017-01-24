@@ -24,11 +24,11 @@ RSpec.describe RssFeed::PlurkParser do
       end
 
       describe "entry:link" do
-        it { expect(subject.first[:link]).to match %r(^http://www.plurk.com/p/[\d\w]{6}) }
+        it { expect(subject.first[:link]).to match %r{^http://www.plurk.com/p/[\d\w]{6}} }
       end
 
       describe "entry:title" do
-        it { expect(subject.first[:title]).to_not match %r(^jodeci ) }
+        it { expect(subject.first[:title]).to_not match %r{^jodeci } }
       end
     end
 

@@ -7,7 +7,7 @@ class Post < ApplicationRecord
   validates :title, presence: true
   validates :slug, presence: true
   validates :slug, uniqueness: { message: I18n.t("validation.uniqueness") }
-  validates :slug, format: { with: /\A[a-zA-Z0-9_-]+\z/, message: I18n.t("validation.format.slug"), allow_blank: true }
+  validates :slug, format: { with: %r{\A[a-zA-Z0-9_-]+\z}, message: I18n.t("validation.format.slug"), allow_blank: true }
   validates :cover_image, numericality: { only_integer: true, greater_than: 0 }, allow_nil: true
   validate :published_at_unless_draft
   validate :feature_only_public
