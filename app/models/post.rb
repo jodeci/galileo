@@ -38,14 +38,13 @@ class Post < ApplicationRecord
 
   def published_at_unless_draft
     return if draft?
-    if published_at.blank?
-      errors.add(:published_at, I18n.t("validation.post.published_at_unless_draft"))
-    end
+    return unless published_at.blank?
+    errors.add(:published_at, I18n.t("validation.post.published_at_unless_draft"))
   end
 
   def feature_only_public
-    if featured and not public?
-      errors.add(:featured, I18n.t("validation.post.feature_only_public"))
-    end
+    return if public?
+    return unless featured
+    errors.add(:featured, I18n.t("validation.post.feature_only_public"))
   end
 end

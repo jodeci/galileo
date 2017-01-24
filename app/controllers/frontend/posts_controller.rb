@@ -18,7 +18,7 @@ class Frontend::PostsController < Frontend::BaseController
   # TODO: realm, username, password based on post?
   def authenticate
     authenticate_or_request("posts") do |username, password|
-      username == Settings.basic_auth.user && password == Settings.basic_auth.password
+      username == Settings.basic_auth_user && password == Settings.basic_auth_password
     end
   end
 

@@ -7,6 +7,8 @@ profile:
   site: http://pagras.net
   image: cover.jpg
 
-basic_auth:
-  user: user
-  password: password
+basic_auth_user: user
+basic_auth_password: password
+
+feeds:
+  plurk: jodeci
