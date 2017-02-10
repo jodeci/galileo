@@ -17,8 +17,10 @@ class HtmlPipeline::MarkdownRenderer
 
   def pipeline
     HTML::Pipeline.new [
+      Korgi::FileUploadFilter,
+      Korgi::NamedRouteFilter,
       HtmlPipeline::MarkdownFilter,
-      HtmlPipeline::ImageFilter,
+      # HtmlPipeline::ImageFilter,
       HtmlPipeline::EmojiFilter,
       HTML::Pipeline::SanitizationFilter,
       HTML::Pipeline::RougeFilter,

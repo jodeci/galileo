@@ -1,4 +1,8 @@
 if defined?(CarrierWave)
+  CarrierWave.configure do |config|
+    # config.asset_host = "http://localhost:3000"
+  end
+
   if Rails.env.test?
     ImageUploader
 

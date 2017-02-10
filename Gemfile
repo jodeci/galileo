@@ -24,6 +24,7 @@ gem "active_decorator"
 gem "jurou"
 gem "shikigami"
 gem "meta-tags"
+gem "korgi"
 
 # tagging and urls
 gem "acts-as-taggable-on", "~> 4.0"
