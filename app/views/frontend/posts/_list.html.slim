@@ -1,7 +1,7 @@
-- if @posts.any?
-  - @posts.each do |post|
+- if posts.any?
+  - posts.each do |post|
     = render "frontend/posts/headline", post: post
-  = paginate @posts, theme: "foundation"
+  = paginate posts, theme: "foundation"
 
 - else
   = no_data_alert

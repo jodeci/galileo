@@ -27,16 +27,4 @@ class Image < ApplicationRecord
       ImageUploader.versions.keys.map(&:to_s)
     end
   end
-
-  def large_url
-    file.large.url
-  end
-
-  def medium_url
-    file.medium.url
-  end
-
-  def thumb_url
-    file.thumb.url
-  end
 end

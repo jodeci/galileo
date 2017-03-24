@@ -38,17 +38,4 @@ RSpec.describe Image, type: :model do
       it { expect(Image.fetch_url(0)).to eq "/assets/no_image_medium.png" }
     end
   end
-
-  describe "#large_url" do
-    it { expect(image.large_url).to eq "#{store_dir_prefix}/image/file/1/large_test.jpg" }
-  end
-
-  describe "#medium_url" do
-    it { expect(image.medium_url).to eq "#{store_dir_prefix}/image/file/1/medium_test.jpg" }
-  end
-
-  describe "#thumb_url" do
-    it { expect(image.thumb_url).to eq "#{store_dir_prefix}/image/file/1/thumb_test.jpg" }
-    it { puts ImageUploader.store_dir }
-  end
 end
