@@ -20,7 +20,6 @@ class HtmlPipeline::MarkdownRenderer
       Korgi::FileUploadFilter,
       Korgi::NamedRouteFilter,
       HtmlPipeline::MarkdownFilter,
-      # HtmlPipeline::ImageFilter,
       HtmlPipeline::EmojiFilter,
       HTML::Pipeline::SanitizationFilter,
       HTML::Pipeline::RougeFilter,
