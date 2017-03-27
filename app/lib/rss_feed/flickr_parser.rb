@@ -5,24 +5,23 @@ require_relative "flickr_item"
 
 module RssFeed
   class FlickrParser
+    attr_reader :feed, :items
+
     def initialize(user = Settings.feeds.flickr, limit = 4)
-      @user = user
       @feed = "https://www.flickr.com/services/feeds/photos_public.gne?id=#{user}&lang=en-us&format=rss"
-      @items = items.take(limit)
+      @items = parsed_items.take(limit)
     end
 
     def photos
-      result = []
-      @items.each do |item|
+      items.reduce([]) do |result, item|
         result << ::RssFeed::FlickrItem.new(item).build_hash
       end
-      result
     end
 
     private
 
-    def items
-      open(@feed) { |rss| RSS::Parser.parse(rss).items }
+    def parsed_items
+      open(feed) { |rss| RSS::Parser.parse(rss).items }
     rescue OpenURI::HTTPError
       []
     end

@@ -3,6 +3,8 @@ require "rss"
 
 module RssFeed
   class PlurkEntry
+    attr_reader :user, :link, :title
+
     def initialize(user, plurk)
       @user = user
       @link = plurk.link.href
@@ -16,11 +18,11 @@ module RssFeed
     private
 
     def build_link
-      @link.gsub!("user/#{@user}.xml/", "")
+      link.gsub!("user/#{user}.xml/", "")
     end
 
     def build_title
-      @title.gsub!("#{@user} ", "")
+      title.gsub!("#{user} ", "")
     end
   end
 end

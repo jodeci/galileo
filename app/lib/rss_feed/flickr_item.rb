@@ -4,6 +4,8 @@ require "nokogiri"
 
 module RssFeed
   class FlickrItem
+    attr_reader :item
+
     def initialize(item)
       @item = item
     end
@@ -15,11 +17,11 @@ module RssFeed
     private
 
     def build_src
-      Nokogiri::HTML(@item.description).xpath("//img").attr("src").to_s
+      Nokogiri::HTML(item.description).xpath("//img").attr("src").to_s
     end
 
     def build_link
-      @item.link
+      item.link
     end
   end
 end
