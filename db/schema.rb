@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170122131711) do
+ActiveRecord::Schema.define(version: 20161220091000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,16 +36,16 @@ ActiveRecord::Schema.define(version: 20170122131711) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "title",                          null: false
+    t.string   "title",                        null: false
     t.text     "abstract"
-    t.text     "body",         default: ""
+    t.text     "body"
     t.string   "slug"
     t.integer  "cover_image"
-    t.string   "status",       default: "draft"
-    t.datetime "published_at"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer  "status",       default: 1
     t.boolean  "featured",     default: false
+    t.datetime "published_at"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.index ["slug"], name: "index_posts_on_slug", unique: true, using: :btree
   end
 

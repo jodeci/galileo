@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 class Frontend::PostsController < Frontend::BaseController
   def index
-    @posts = ::Post.published.page(params[:page])
+    @posts = ::Post.listed.page(params[:page])
   end
 
   def taglist
-    @posts = ::Post.published.tagged_with(params[:name]).page(params[:page])
+    @posts = ::Post.listed.tagged_with(params[:name]).page(params[:page])
   end
 
   def show
-    @post = ::Post.published.find(params[:id])
-    authenticate if @post.protected?
+    @post = ::Post.listed.find(params[:id])
+    authenticate if @post.password_protected?
   end
 
   private

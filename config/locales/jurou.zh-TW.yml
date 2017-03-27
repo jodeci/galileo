@@ -3,8 +3,8 @@ zh-TW:
     post:
       status:
         draft: 草稿
-        protected: 密碼保護
-        public: 公開
+        password_protected: 密碼保護
+        published: 公開
 
     app_title: 伽利略
 

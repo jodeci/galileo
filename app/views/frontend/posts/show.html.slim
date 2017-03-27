@@ -1,5 +1,5 @@
 - jr_content_for_page_title(@post.title)
-- set_meta_tags nofollow: true, noindex: true if @post.protected?
+- set_meta_tags nofollow: true, noindex: true if @post.password_protected?
 - set_meta_tags description: @post.description, og: @post.open_graph
 
 = render "frontend/posts/title", post: @post

@@ -2,11 +2,12 @@ class CreatePosts < ActiveRecord::Migration[5.0]
   def change
     create_table :posts do |t|
       t.string :title, null: false
-      t.text :abstract
+      t.text :abstract, default: nil
       t.text :body
       t.string :slug
       t.integer :cover_image
-      t.string :status, default: "draft"
+      t.integer :status, default: 1
+      t.boolean :featured, default: false
       t.datetime :published_at
 
       t.timestamps
