@@ -1,15 +1,27 @@
-profile:
-  name:
-  email:
-  facebook:
-  twitter:
-  github:
-  site:
-  image:
+defaults: &defaults
+  profile:
+    name:
+    email:
+    facebook:
+    twitter:
+    github:
+    site:
+    image:
 
-basic_auth_user:
-basic_auth_password:
+  basic_auth_user:
+  basic_auth_password:
 
-feeds:
-  plurk:
-  flickr:
+  feeds:
+    plurk:
+    flickr:
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+  profile:
+    image: cover.jpg
+
+production:
+  <<: *defaults
