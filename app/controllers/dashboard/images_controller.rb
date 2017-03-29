@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class Dashboard::ImagesController < Dashboard::BaseController
   def taglist
-    @current_collection ||= ::Image.tagged_with(params[:name]).page(params[:page])
+    @current_collection ||= ::Image.dashboard.tagged_with(params[:name]).page(params[:page])
     render :index
   end
 
@@ -11,7 +11,7 @@ class Dashboard::ImagesController < Dashboard::BaseController
     if params[:id]
       ::Image
     else
-      ::Image.order(id: :desc)
+      ::Image.dashboard
     end
   end
 

@@ -4,6 +4,9 @@ class Image < ApplicationRecord
   serialize :exif
   acts_as_taggable
 
+  scope :tagged, -> { includes(:taggings) }
+  scope :dashboard, -> { tagged.order(id: :desc) }
+
   class << self
     def fetch(id)
       Image.find_by(id: id) || NullImage

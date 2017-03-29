@@ -14,8 +14,12 @@ class Post < ApplicationRecord
   validates :published_at, presence: { message: I18n.t("validation.post.published_at") }, unless: :draft?
   validate :feature_only_published, if: :featured?
 
+  scope :tagged, -> { includes(:taggings) }
+  scope :dashboard, -> { tagged.order(id: :desc) }
+
   scope :listed, -> {
-    where(status: [:published, :password_protected])
+    tagged
+      .where(status: [:published, :password_protected])
       .order(published_at: :desc)
   }
 

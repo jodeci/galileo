@@ -5,7 +5,7 @@ class Dashboard::PostsController < Dashboard::BaseController
   before_action :assign_current_object, only: [:show, :edit]
 
   def taglist
-    @current_collection = ::Post.tagged_with(params[:name]).page(params[:page])
+    @current_collection = ::Post.dashboard.tagged_with(params[:name]).page(params[:page])
   end
 
   private
@@ -18,7 +18,7 @@ class Dashboard::PostsController < Dashboard::BaseController
     if params[:id]
       ::Post
     else
-      ::Post.order(id: :desc)
+      ::Post.dashboard
     end
   end
 
