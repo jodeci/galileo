@@ -108,6 +108,9 @@ Style/TrailingCommaInLiteral:
 Style/RegexpLiteral:
   EnforcedStyle: percent_r
 
+Style/EmptyLineAfterMagicComment:
+  Enabled: false
+
 Metrics/ModuleLength:
   Exclude:
     - "**/*_spec.rb"

@@ -1,14 +1,11 @@
-/= simple_form_for [:dashboard, @form] do |f|
-  = f.input :title, required: true
-  = f.input :slug, hint: t("validation.format.slug"), required: false
+= simple_form_for [:dashboard, @form] do |f|
+  = f.input :title
+  = f.input :slug, hint: t("validation.format.slug"), required: true
   = f.input :status, collection: jr_collection(:status), include_blank: false
-  = f.input :published_at, as: :date, html5: true
+  = f.input :published_at, as: :date, html5: true, required: false
   = f.input :featured
   /= f.input :tag_list, input_html: { value: current_object.tag_list.to_s }, hint: t("hints.post.tag_list")
   /= f.input :cover_image, as: :string, hint: t("hints.post.cover_image")
   /= f.input :abstract
   /= f.input :body, as: :pagedown, input_html: { preview: false, rows: 10 }
   = f.submit
-
-
-p views/form

@@ -37,5 +37,11 @@ module Post::Cell
       return unless model.cover_image
       image_tag_by_id(model.cover_image)
     end
+
+    def statuses
+      model.model.class.statuses.keys.map do |key|
+        [I18n.t("jurou.post.status.#{key}"), key]
+      end
+    end
   end
 end

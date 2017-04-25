@@ -45,9 +45,9 @@ zh-TW:
       dashboard/tags:
         index: 標籤列表
         edit: 修改標籤
-      
+
   activerecord:
-    attributes:
+    attributes: &attributes
       post:
         title: 標題
         published_at: 發表時間
@@ -69,3 +69,6 @@ zh-TW:
       acts_as_taggable_on/tag:
         name: 標籤
         taggings_count: 使用次數
+
+  contract:
+    <<: *attributes

@@ -33,7 +33,8 @@ gem "cells-rails"
 gem "cells-slim"
 gem "reform"
 gem "reform-rails"
-gem "formular", git: "https://github.com/trailblazer/formular"
+#gem "formular", git: "https://github.com/trailblazer/formular"
+gem "formular", path: "../formular"
 
 # tagging and urls
 gem "acts-as-taggable-on", "~> 4.0"

@@ -9,6 +9,7 @@ module Post::Contract
     property :status
     property :published_at
     property :featured
+    property :tag_list
 
     validates :title, presence: true
     validates :slug, presence: { message: "BAD, need slug" }

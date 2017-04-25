@@ -6,6 +6,7 @@ class Post::Update < Trailblazer::Operation
   end
 
   step Nested(Present)
-  step Contract::Validate()
+  # step Contract::Validate(key: :post) # simple form
+  step Contract::Validate() # cell
   step Contract::Persist()
 end

@@ -12,7 +12,6 @@ class Dashboard::PostsController < Dashboard::BaseController
     run ::Post::Create do |result|
       return redirect_to edit_dashboard_post_path(result["model"].id)
     end
-    Rails.logger.info "CREATE:: #{result.inspect}"
     render cell(Post::Cell::Dashboard::New, result["contract.default"])
   end
 
