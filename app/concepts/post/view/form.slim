@@ -1,0 +1,12 @@
+= form_for do |f|
+  = f.input :title, label: "title"
+  = f.input :slug, label: "slug"
+  /= f.input :slug, hint: t("validation.format.slug"), required: false
+  /= f.input :status, collection: jr_collection(:status), include_blank: false
+  /= f.input :published_at, as: :date, html5: true
+  /= f.input :featured
+  /= f.input :tag_list, input_html: { value: current_object.tag_list.to_s }, hint: t("hints.post.tag_list")
+  /= f.input :cover_image, as: :string, hint: t("hints.post.cover_image")
+  /= f.input :abstract
+  /= f.input :body, as: :pagedown, input_html: { preview: false, rows: 10 }
+  = f.submit value: "submit"

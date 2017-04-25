@@ -26,6 +26,15 @@ gem "shikigami"
 gem "meta-tags"
 gem "korgi"
 
+gem "trailblazer"
+gem "trailblazer-rails"
+gem "trailblazer-cells"
+gem "cells-rails"
+gem "cells-slim"
+gem "reform"
+gem "reform-rails"
+gem "formular", git: "https://github.com/trailblazer/formular"
+
 # tagging and urls
 gem "acts-as-taggable-on", "~> 4.0"
 gem "friendly_id", "~> 5.1.0"
