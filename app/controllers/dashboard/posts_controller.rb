@@ -1,9 +1,11 @@
 # frozen_string_literal: true
 class Dashboard::PostsController < Dashboard::BaseController
   # assign for active_decorator
-  before_action :assign_current_collection, only: [:index, :taglist]
+  # before_action :assign_current_collection, only: [:index, :taglist]
 
   def index
+    run ::Post::Index
+    render cell(Post::Cell::Dashboard::Index, result["posts"])
   end
 
   def taglist

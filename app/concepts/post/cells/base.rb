@@ -4,6 +4,7 @@ module Post::Cell
     include Shared::Cell
     extend ViewName::Flat
 
+    property :id
     property :title
     property :slug
     property :abstract

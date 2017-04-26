@@ -12,6 +12,9 @@ module Post::Cell::Dashboard
   class Index < Base
   end
 
+  class Item < Base
+  end
+
   class Show < Base
   end
 
