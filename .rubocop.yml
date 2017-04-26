@@ -1,9 +1,9 @@
 AllCops:
   TargetRubyVersion: 2.3
-  Include:
+  Exclude:
     - ./Rakefile
     - ./config.ru
-  Exclude:
+    - ./Gemfile
     - bin/**/*
     - db/**/*
     - config/**/*
@@ -109,6 +109,21 @@ Style/RegexpLiteral:
   EnforcedStyle: percent_r
 
 Style/EmptyLineAfterMagicComment:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Rails/FilePath:
   Enabled: false
 
 Metrics/ModuleLength:

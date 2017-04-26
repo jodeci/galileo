@@ -16,7 +16,8 @@ module Post::Cell
 
     private
 
-    def body
+    def body_html
+      return unless body
       markdownify(model.body)
     end
 
@@ -24,8 +25,8 @@ module Post::Cell
       I18n.t("jurou.post.status.#{model.status}")
     end
 
-    def published_at
-      return unless model.published_at
+    def published_date
+      return unless published_at
       model.published_at.strftime("%Y-%m-%d")
     end
 
@@ -33,8 +34,8 @@ module Post::Cell
       I18n.t(model.featured.to_s)
     end
 
-    def cover_image
-      return unless model.cover_image
+    def cover_image_tag
+      return unless cover_image
       image_tag_by_id(model.cover_image)
     end
 
