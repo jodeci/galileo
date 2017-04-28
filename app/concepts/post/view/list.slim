@@ -1,0 +1,8 @@
+table.table
+  tr
+    th #
+    th title
+    th slug
+    th tags
+    th status
+  = cell(Post::Cell::Dashboard::Item, collection: model)

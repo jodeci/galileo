@@ -12,6 +12,12 @@ module Post::Cell::Dashboard
   class Index < Base
   end
 
+  class Taglist < Base
+  end
+
+  class List < Base
+  end
+
   class Item < Base
   end
 

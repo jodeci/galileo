@@ -1,15 +1,13 @@
 # frozen_string_literal: true
 class Dashboard::PostsController < Dashboard::BaseController
-  # assign for active_decorator
-  # before_action :assign_current_collection, only: [:index, :taglist]
-
   def index
     run ::Post::Index
     render cell(Post::Cell::Dashboard::Index, result["posts"])
   end
 
   def taglist
-    @current_collection = ::Post.dashboard.tagged_with(params[:name]).page(params[:page])
+    run ::Post::Taglist
+    render cell(Post::Cell::Dashboard::Taglist, result["posts"])
   end
 
   def show
@@ -39,19 +37,5 @@ class Dashboard::PostsController < Dashboard::BaseController
       return redirect_to edit_dashboard_post_path(result["model"].id)
     end
     render cell(Post::Cell::Dashboard::Edit, result["contract.default"])
-  end
-
-  private
-
-  def current_object
-    @current_object ||= collection_scope.friendly.find(params[:id])
-  end
-
-  def collection_scope
-    if params[:id]
-      ::Post
-    else
-      ::Post.dashboard
-    end
   end
 end
