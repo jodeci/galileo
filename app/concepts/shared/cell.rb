@@ -9,7 +9,7 @@ module Shared::Cell
       image_tag Image.fetch_url(*args), options
     end
 
-    def qt(attribute)
+    def jt(attribute)
       I18n.t("activerecord.attributes.#{model.model_name.param_key}.#{attribute}")
     end
   end
