@@ -4,3 +4,4 @@ tr
   td = slug
   td = tag_list
   td = status
+  td = link_to("delete", dashboard_post_path(id), method: :delete, data: { confirm: "are you sure?" })

@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require_dependency "app/concepts/post/contracts/base"
+
 class Post::Update < Trailblazer::Operation
   class Present < Trailblazer::Operation
     step Model(Post, :find_by)

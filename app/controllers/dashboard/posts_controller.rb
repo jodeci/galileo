@@ -38,4 +38,9 @@ class Dashboard::PostsController < Dashboard::BaseController
     end
     render cell(Post::Cell::Dashboard::Edit, result["contract.default"])
   end
+
+  def destroy
+    run ::Post::Destroy
+    redirect_to dashboard_posts_path
+  end
 end

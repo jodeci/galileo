@@ -14,4 +14,10 @@ module Post::Contract
     validates :title, presence: true
     validates :slug, presence: { message: "BAD, need slug" }
   end
+
+  class Create < Base
+  end
+
+  class Update < Base
+  end
 end
