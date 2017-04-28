@@ -12,6 +12,9 @@ module Post::Cell
     class Index < Base
     end
 
+    class Taglist < Base
+    end
+
     class Show < Base
     end
   end

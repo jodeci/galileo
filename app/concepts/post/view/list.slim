@@ -1,9 +1,9 @@
 table.table
   tr
     th #
-    th title
-    th slug
-    th tags
-    th status
+    th = qt :title
+    th = qt :slug
+    th = qt :tag_list
+    th = qt :status
     th action
   = cell(Post::Cell::Dashboard::Item, collection: model)

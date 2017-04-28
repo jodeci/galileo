@@ -2,7 +2,7 @@
 class Post::Destroy < Trailblazer::Operation
   step :process!
 
-  def process!(options, params:, **)
-    Post.find(params[:id]).destroy
+  def process!(_options, params:, **)
+    Post.find_by(id: params[:id]).destroy
   end
 end

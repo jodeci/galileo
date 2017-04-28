@@ -1,7 +1,9 @@
 # frozen_string_literal: true
+require_dependency "app/concepts/shared/cell"
+
 module Post::Cell
   class Base < Trailblazer::Cell
-    include Shared::Cell
+    include Shared::Cell::Helpers
     extend ViewName::Flat
 
     property :id
@@ -41,7 +43,7 @@ module Post::Cell
     end
 
     def statuses
-      model.model.class.statuses.keys.map do |key|
+      Post.statuses.keys.map do |key|
         [I18n.t("jurou.post.status.#{key}"), key]
       end
     end
