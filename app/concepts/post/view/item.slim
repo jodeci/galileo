@@ -1,7 +1,11 @@
 tr
   td = id
   td = title
-  td = slug
-  td = tag_list
   td = status
-  td = link_to("delete", dashboard_post_path(id), method: :delete, data: { confirm: "are you sure?" })
+  td = tag_list
+  td = published_date
+  td = featured
+  td.actions
+    = bs_btn :show, dashboard_post_path(id)
+    = bs_btn :edit, edit_dashboard_post_path(id)
+    = bs_btn :destroy, dashboard_post_path(id), method: :delete, confirm: true

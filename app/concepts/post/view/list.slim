@@ -2,8 +2,9 @@ table.table
   tr
     th #
     th = jt :title
-    th = jt :slug
-    th = jt :tag_list
     th = jt :status
-    th action
+    th = jt :tag_list
+    th = jt :published_at
+    th = jt :featured
+    th = t("actions._label")
   = cell(Post::Cell::Dashboard::Item, collection: model)
