@@ -5,12 +5,6 @@ PATH
       declarative (~> 0.0.4)
       uber (>= 0.0.11, < 0.2.0)
 
-PATH
-  remote: ../trailblazer-cells
-  specs:
-    trailblazer-cells (0.0.3)
-      cells (>= 4.1.0, < 5.0.0)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -335,6 +329,8 @@ GEM
       declarative
       reform (>= 2.2.0, < 3.0.0)
       trailblazer-operation (>= 0.0.12, < 0.1.0)
+    trailblazer-cells (0.0.3)
+      cells (>= 4.1.0.rc1, < 5.0.0)
     trailblazer-loader (0.1.0)
     trailblazer-operation (0.0.13)
       declarative
@@ -429,7 +425,7 @@ DEPENDENCIES
   spring-watcher-listen (~> 2.0.0)
   stateful_enum
   trailblazer
-  trailblazer-cells!
+  trailblazer-cells
   trailblazer-rails
   turbolinks (~> 5.x)
   twemoji

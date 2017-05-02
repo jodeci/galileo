@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_dependency "app/concepts/post/cells/base"
+require_dependency "app/concepts/post/cell/base"
 require_dependency "app/concepts/shared/cell"
 
 module Post::Cell

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_dependency "app/concepts/post/contracts/base"
+require_dependency "app/concepts/post/contract/base"
 
 class Post::Create < Trailblazer::Operation
   class Present < Trailblazer::Operation

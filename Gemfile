@@ -28,7 +28,7 @@ gem "korgi"
 
 gem "trailblazer"
 gem "trailblazer-rails"
-gem "trailblazer-cells", path: "../trailblazer-cells"
+gem "trailblazer-cells"
 gem "cells-rails"
 gem "cells-slim"
 gem "reform"
