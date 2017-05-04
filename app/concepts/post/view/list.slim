@@ -8,3 +8,5 @@ table.table
     th = jt :featured
     th = t("actions._label")
   = cell(Post::Cell::Dashboard::Item, collection: model)
+
+= cell(Post::Cell::Dashboard::Paginate, model)

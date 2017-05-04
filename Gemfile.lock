@@ -5,6 +5,13 @@ PATH
       declarative (~> 0.0.4)
       uber (>= 0.0.11, < 0.2.0)
 
+PATH
+  remote: ../kaminari-cells
+  specs:
+    kaminari-cells (0.0.4)
+      cells (>= 4.0.0, <= 5.0.0)
+      kaminari (>= 0.16.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -67,7 +74,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.10.0)
     byebug (9.0.6)
-    carrierwave (1.0.0)
+    carrierwave (1.1.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
@@ -95,7 +102,7 @@ GEM
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.2)
-    database_rewinder (0.8.0)
+    database_rewinder (0.8.1)
     declarative (0.0.9)
     declarative-builder (0.1.0)
       declarative-option (< 0.2.0)
@@ -125,8 +132,8 @@ GEM
     faker (1.7.3)
       i18n (~> 0.5)
     ffi (1.9.18)
-    font-awesome-rails (4.7.0.1)
-      railties (>= 3.2, < 5.1)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     foundation-icons-sass-rails (3.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
@@ -139,7 +146,7 @@ GEM
     github-markdown (0.6.9)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    hashdiff (0.3.2)
+    hashdiff (0.3.4)
     hirb (0.7.3)
     hirb-unicode (0.0.5)
       hirb (~> 0.5)
@@ -254,8 +261,9 @@ GEM
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
       uber (< 0.2.0)
-    responders (2.3.0)
-      railties (>= 4.2.0, < 5.1)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     rouge (2.0.7)
     rspec-core (3.5.4)
       rspec-support (~> 3.5.0)
@@ -325,7 +333,7 @@ GEM
     thor (0.19.4)
     thread_safe (0.3.6)
     tilt (2.0.7)
-    trailblazer (2.0.4)
+    trailblazer (2.0.6)
       declarative
       reform (>= 2.2.0, < 3.0.0)
       trailblazer-operation (>= 0.0.12, < 0.1.0)
@@ -342,7 +350,7 @@ GEM
       trailblazer-loader (>= 0.1.0)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
-    turbolinks-source (5.0.0)
+    turbolinks-source (5.0.2)
     twemoji (3.1.2)
       nokogiri (~> 1.6)
     tzinfo (1.2.3)
@@ -401,6 +409,7 @@ DEPENDENCIES
   jquery-turbolinks
   jurou
   kaminari (~> 1.0)
+  kaminari-cells!
   korgi
   listen (~> 3.0.5)
   meta-tags

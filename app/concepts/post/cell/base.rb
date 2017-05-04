@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require_dependency "app/concepts/shared/cell"
+require_dependency "app/concepts/shared/cell/helpers"
 
 module Post::Cell
   class Base < Trailblazer::Cell
