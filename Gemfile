@@ -32,11 +32,10 @@ gem "trailblazer-cells"
 gem "cells-rails"
 gem "cells-slim"
 gem "reform"
-gem "reform-rails"
-#gem "formular", git: "https://github.com/trailblazer/formular"
+gem "reform-rails", git: "https://github.com/trailblazer/reform-rails"
 gem "formular", path: "../formular"
-#gem "kaminari-cells", git: "https://github.com/tjjjwxzq/kaminari-cells", branch: "bugfix/kaminari-1.0.0"
 gem "kaminari-cells", path: "../kaminari-cells"
+gem "dry-types"
 
 # tagging and urls
 gem "acts-as-taggable-on", "~> 4.0"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
-require_dependency "app/concepts/post/cell/base"
-require_dependency "app/concepts/shared/cell/form"
-require_dependency "app/concepts/shared/cell/paginate"
+require_dependency "./app/concepts/post/cell/base"
+require_dependency "./app/concepts/shared/cell/form"
+require_dependency "./app/concepts/shared/cell/paginate"
 
 module Post::Cell
   module Dashboard
