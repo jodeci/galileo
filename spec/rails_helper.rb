@@ -6,6 +6,7 @@ require File.expand_path("../../config/environment", __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require "spec_helper"
 require "rspec/rails"
+require "capybara/rails"
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -42,6 +43,9 @@ RSpec.configure do |config|
   config.include DecoratorSpecHelper, type: :decorator
   config.include UploaderSpecHelper
   config.include Rails.application.routes.url_helpers
+
+  config.include Capybara::DSL
+  config.include Warden::Test::Helpers
 
   config.before(:suite) do
     DatabaseRewinder.clean_all

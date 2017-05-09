@@ -25,14 +25,14 @@ module Post::Contract
     validate :featured_only_published
 
     def published_at_unless_draft
-      return if status == :draft
-      return unless published_at.blank?
+      return if status == "draft"
+      return if published_at.present?
       errors.add(:published_at, I18n.t("validation.post.published_at"))
     end
 
     def featured_only_published
       return unless featured
-      return if status == :published
+      return if status == "published"
       errors.add(:featured, I18n.t("validation.post.featured"))
     end
   end
