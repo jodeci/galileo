@@ -2,12 +2,12 @@
 class Dashboard::PostsController < Dashboard::BaseController
   def index
     run Post::Index
-    render cell(Post::Cell::Dashboard::Index, result["posts"])
+    render cell(Post::Cell::Dashboard::Index, result["model"])
   end
 
   def taglist
     run Post::Taglist
-    render cell(Post::Cell::Dashboard::Taglist, result["posts"])
+    render cell(Post::Cell::Dashboard::Taglist, result["model"])
   end
 
   def show

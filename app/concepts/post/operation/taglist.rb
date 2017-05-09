@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 class Post::Taglist < Trailblazer::Operation
-  step :process!
+  step :model!
 
-  def process!(options, params:, **)
-    options["posts"] = Post.dashboard.tagged_with(params[:name]).page(params[:page])
+  def model!(options, params:, **)
+    options["model"] = Post.dashboard.tagged_with(params[:name]).page(params[:page])
   end
 end
