@@ -39,7 +39,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def store_exif_data
-    Rails.logger.info "SPECTEST: #{file.inspect} #{model.inspect}"
     return unless file and model
     model.exif = EXIFR::JPEG.new(self.file.file).to_hash
   end

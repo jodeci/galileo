@@ -1,10 +1,11 @@
 # frozen_string_literal: true
-require "reform/form/validation/unique_validator"
 require "reform/form/coercion"
+require "reform/form/dry"
 
 module Post::Contract
   class Base < Reform::Form
-    feature Coercion
+    feature Reform::Form::Coercion
+    feature Reform::Form::Dry
 
     property :title
     property :slug
@@ -16,24 +17,26 @@ module Post::Contract
     property :featured, type: Types::Form::Bool
     property :tag_list
 
-    validates :title, presence: true
-    validates :slug, presence: true
-    validates :slug, unique: { message: I18n.t("validation.uniqueness") }
-    validates :slug, format: { with: %r{\A[a-zA-Z0-9_-]+\z}, message: I18n.t("validation.format.slug") }
-    validates :cover_image, numericality: { only_integer: true, greater_than: 0 }, allow_blank: true
-    validate :published_at_unless_draft
-    validate :featured_only_published
+    validation schema: ::BaseSchema, with: { form: true } do
+      configure do
+        option :form
 
-    def published_at_unless_draft
-      return if status == "draft"
-      return if published_at.present?
-      errors.add(:published_at, I18n.t("validation.post.published_at"))
-    end
+        def unique?(value)
+          Post.where.not(id: form.model.id).where(slug: value).empty?
+        end
+      end
 
-    def featured_only_published
-      return unless featured
-      return if status == "published"
-      errors.add(:featured, I18n.t("validation.post.featured"))
+      required(:title).filled
+      required(:slug).filled(format?: %r{\A[a-z0-9_-]+\z}, unique?: :slug)
+      required(:cover_image) { filled? > int? & gt?(0) }
+
+      required(:status).filled.when(included_in?: %w(published password_protected)) do
+        value(:published_at).filled?
+      end
+
+      required(:featured).filled.when(:true?) do
+        value(:status).eql?("published")
+      end
     end
   end
 

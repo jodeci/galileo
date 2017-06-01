@@ -36,6 +36,7 @@ gem "reform-rails", git: "https://github.com/trailblazer/reform-rails"
 gem "formular", path: "../formular"
 gem "kaminari-cells", path: "../kaminari-cells"
 gem "dry-types"
+gem "dry-validation"
 
 # tagging and urls
 gem "acts-as-taggable-on", "~> 4.0"

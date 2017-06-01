@@ -1,0 +1,104 @@
+zh-TW:
+  errors:
+    rules:
+      slug:
+        format?: 只允許英數和連接符號
+        unique?: 已被使用
+
+      cover_image:
+        int?: 圖檔主鍵需為正整數
+        gt?: 圖檔主鍵需為正整數
+
+      published_at:
+        filled?: 非草稿文章需設定發表日期
+
+      status:
+        eql?: 只能將公開文章設成精選
+
+    or: "或"
+    array?: "需為 array"
+
+    empty?: "需為空值"
+
+    excludes?: "不得包括 %{value}"
+
+    excluded_from?:
+      arg:
+        default: "不得為其中之一: %{list}"
+        range: "不得為其中之一: %{list_left} - %{list_right}"
+    exclusion?: "不得為其中之一: %{list}"
+
+    eql?: "需等於 %{left}"
+
+    not_eql?: "不得等於 %{left}"
+
+    filled?: "未填寫"
+
+    format?: "格式不正確"
+
+    number?: "需為數值"
+
+    odd?: "需為奇數"
+
+    even?: "需為偶數"
+
+    gt?: "需大於 %{num}"
+
+    gteq?: "需大於等於 %{num}"
+
+    hash?: "需為 hash"
+
+    included_in?:
+      arg:
+        default: "需為其中之一: %{list}"
+        range: "需為其中之一: %{list_left} - %{list_right}"
+    inclusion?: "需為其中一: %{list}"
+
+    includes?: "需包括 %{value}"
+
+    bool?: "需為 boolean"
+
+    true?: "需為 true"
+
+    false?: "需為 false"
+
+    int?: "需為 integer"
+
+    float?: "需為 float"
+
+    decimal?: "需為 decimal"
+
+    date?: "需為 date"
+
+    date_time?: "需為 date time"
+
+    time?: "需為 time"
+
+    key?: "不存在"
+
+    attr?: "不存在"
+
+    lt?: "需小於 %{num}"
+
+    lteq?: "需小於等於 %{num}"
+
+    max_size?: "最大值為 %{num}"
+
+    min_size?: "最小值為 %{num}"
+
+    none?: "不得給值"
+
+    str?: "需為字串"
+
+    type?: "需為 %{type} 型態"
+
+    size?:
+      arg:
+        default: "長度需為 %{size}"
+        range: "長度需在 %{size_left} - %{size_right} 之間"
+
+      value:
+        string:
+          arg:
+            default: "長度需為 %{size}"
+            range: "長度需在 %{size_left} - %{size_right} 之間"
