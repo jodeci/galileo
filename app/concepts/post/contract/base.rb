@@ -1,11 +1,9 @@
 # frozen_string_literal: true
 require "reform/form/coercion"
-require "reform/form/dry"
 
 module Post::Contract
   class Base < Reform::Form
     feature Reform::Form::Coercion
-    feature Reform::Form::Dry
 
     property :title
     property :slug
