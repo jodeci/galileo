@@ -113,6 +113,8 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    commonmarker (0.16.0)
+      ruby-enum (~> 0.5)
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -323,6 +325,8 @@ GEM
       rspec-mocks (~> 3.6.0)
       rspec-support (~> 3.6.0)
     rspec-support (3.6.0)
+    ruby-enum (0.7.1)
+      i18n
     safe_yaml (1.0.4)
     sanitize (4.4.0)
       crass (~> 1.0.2)
@@ -434,6 +438,7 @@ DEPENDENCIES
   cells-slim
   codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
+  commonmarker
   database_rewinder
   devise
   dry-types
