@@ -2,9 +2,9 @@
 require "rails_helper"
 
 describe PostDecorator, type: :decorator do
-  before { FactoryGirl.create(:image) }
-  let(:published_post) { FactoryGirl.create(:post, :published, :abstract) }
-  let(:draft_post) { FactoryGirl.create(:post, :draft) }
+  before { FactoryBot.create(:image) }
+  let(:published_post) { FactoryBot.create(:post, :published, :abstract) }
+  let(:draft_post) { FactoryBot.create(:post, :draft) }
   let(:decorated_published) { ActiveDecorator::Decorator.instance.decorate(published_post) }
   let(:decorated_draft) { ActiveDecorator::Decorator.instance.decorate(draft_post) }
 

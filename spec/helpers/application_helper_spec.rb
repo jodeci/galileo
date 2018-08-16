@@ -2,7 +2,7 @@
 require "rails_helper"
 
 describe ApplicationHelper, type: :helper do
-  before { FactoryGirl.create(:image) }
+  before { FactoryBot.create(:image) }
   let(:image) { Image.first }
 
   describe "#markdownify" do

@@ -2,11 +2,11 @@
 require "rails_helper"
 
 RSpec.describe Post, type: :model do
-  let(:published_post) { FactoryGirl.create(:post, :published) }
-  let(:password_protected_post) { FactoryGirl.create(:post, :password_protected) }
-  let(:draft_post) { FactoryGirl.create(:post, :draft) }
-  let(:featured_post) { FactoryGirl.create(:post, :published, featured: true) }
-  subject { FactoryGirl.build(:post) }
+  let(:published_post) { FactoryBot.create(:post, :published) }
+  let(:password_protected_post) { FactoryBot.create(:post, :password_protected) }
+  let(:draft_post) { FactoryBot.create(:post, :draft) }
+  let(:featured_post) { FactoryBot.create(:post, :published, featured: true) }
+  subject { FactoryBot.build(:post) }
 
   describe "validations" do
     context ":title" do

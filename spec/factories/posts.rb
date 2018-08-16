@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-FactoryGirl.define do
+FactoryBot.define do
   factory :post do
     title { Faker::Book.title }
     slug { Faker::Lorem.words(4, true).join("-") }
