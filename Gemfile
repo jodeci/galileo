@@ -38,6 +38,7 @@ gem "github-markdown"
 gem "sanitize"
 gem "html-pipeline-rouge_filter"
 gem "twemoji"
+gem "commonmarker"
 
 # image handling
 gem "carrierwave"

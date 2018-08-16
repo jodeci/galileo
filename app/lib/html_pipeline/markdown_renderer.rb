@@ -4,7 +4,7 @@ class HtmlPipeline::MarkdownRenderer
 
   def initialize(content)
     @content = content
-    @whitelist = HTML::Pipeline::SanitizationFilter::WHITELIST
+    @whitelist = HTML::Pipeline::SanitizationFilter::WHITELIST.deep_dup
     @whitelist[:attributes][:all] << "class"
   end
 

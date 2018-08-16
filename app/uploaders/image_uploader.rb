@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require "exifr/jpeg"
+
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   storage :file
