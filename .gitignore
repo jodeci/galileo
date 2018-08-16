@@ -6,7 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/.ruby-version
 /.rails.reek
 
 # Ignore all logfiles and tempfiles.
