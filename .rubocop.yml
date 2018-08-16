@@ -1,13 +1,13 @@
 AllCops:
   TargetRubyVersion: 2.3
-  Include:
+  Exclude:
     - ./Rakefile
     - ./config.ru
-  Exclude:
+    - ./Gemfile
     - bin/**/*
     - db/**/*
     - config/**/*
-    - lib/tasks/*.rake
+    - test/factories/*
 
 Rails:
   Enabled: true
@@ -108,10 +108,49 @@ Style/TrailingCommaInLiteral:
 Style/RegexpLiteral:
   EnforcedStyle: percent_r
 
+Layout/EmptyLineAfterMagicComment:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false
+
+Metrics/ClassLength:
+  Exclude:
+    - "**/*_spec.rb"
+    - "**/*_test.rb"
+
 Metrics/ModuleLength:
   Exclude:
     - "**/*_spec.rb"
+    - "**/*_test.rb"
 
 Metrics/BlockLength:
   Exclude:
+    - "lib/tasks/*.rake"
     - "**/*_spec.rb"
+    - "**/*_test.rb"
+
+# turned off because this app doesn't care about timezone
+Rails/Date:
+  Enabled: false
