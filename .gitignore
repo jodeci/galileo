@@ -6,7 +6,6 @@
 
 # Ignore bundler config.
 /.bundle
-/.rails.reek
 
 # Ignore all logfiles and tempfiles.
 /log/*
@@ -28,5 +27,4 @@
 
 # Personal settings
 /.irbrc
-/.powenv
 /TODO.md

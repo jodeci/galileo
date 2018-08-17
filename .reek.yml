@@ -1,0 +1,36 @@
+exclude_paths:
+  - db/migrate
+  - config
+
+detectors:
+  IrresponsibleModule:  
+    enabled: false
+  UtilityFunction:
+    enabled: false
+  NestedIterators:
+    enabled: false 
+  
+directories:
+  "app/":
+    InstanceVariableAssumption:
+      enabled: false
+    DuplicateMethodCall:
+      max_calls: 2
+
+  "app/controllers":
+    InstanceVariableAssumption:
+      enabled: false
+    UncommunicativeModuleName:
+      enabled: false
+
+  "lib/":
+    DuplicateMethodCall:
+      enabled: false
+
+  "spec/":
+    UncommunicativeMethodName:
+      enabled: false
+    DuplicateMethodCall:
+      enabled: false
+    TooManyMethods:
+      enabled: false
