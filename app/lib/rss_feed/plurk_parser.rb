@@ -9,7 +9,7 @@ module RssFeed
 
     def initialize(user = Settings.feeds.plurk, limit = 10)
       @user = user
-      @feed = "http://www.plurk.com/user/#{user}.xml"
+      @feed = URI.parse("http://www.plurk.com/user/#{user}.xml")
       @entries = parsed_entries.take(limit)
     end
 
@@ -22,7 +22,7 @@ module RssFeed
     private
 
     def parsed_entries
-      open(feed) { |rss| RSS::Parser.parse(rss).entries }
+      feed.open { |rss| RSS::Parser.parse(rss).entries }
     rescue OpenURI::HTTPError
       []
     end

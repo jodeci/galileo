@@ -8,7 +8,7 @@ module RssFeed
     attr_reader :feed, :items
 
     def initialize(user = Settings.feeds.flickr, limit = 4)
-      @feed = "https://www.flickr.com/services/feeds/photos_public.gne?id=#{user}&lang=en-us&format=rss"
+      @feed = URI.parse("https://www.flickr.com/services/feeds/photos_public.gne?id=#{user}&lang=en-us&format=rss")
       @items = parsed_items.take(limit)
     end
 
@@ -21,7 +21,7 @@ module RssFeed
     private
 
     def parsed_items
-      open(feed) { |rss| RSS::Parser.parse(rss).items }
+      feed.open { |rss| RSS::Parser.parse(rss).items }
     rescue OpenURI::HTTPError
       []
     end

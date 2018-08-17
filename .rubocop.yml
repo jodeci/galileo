@@ -102,7 +102,10 @@ Style/BlockComments:
 Style/TrailingCommaInArguments:
   EnforcedStyleForMultiline: no_comma
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
   EnforcedStyleForMultiline: consistent_comma
 
 Style/RegexpLiteral:
@@ -150,6 +153,9 @@ Metrics/BlockLength:
     - "lib/tasks/*.rake"
     - "**/*_spec.rb"
     - "**/*_test.rb"
+
+Rails/LexicallyScopedActionFilter:
+  Enabled: false
 
 # turned off because this app doesn't care about timezone
 Rails/Date:

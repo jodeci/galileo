@@ -11,6 +11,7 @@ class HtmlPipeline::MarkdownRenderer
   def call
     # rubocop: disable OutputSafety
     pipeline.call(content)[:output].to_s.html_safe
+    # rubocop: enable OutputSafety
   end
 
   private
