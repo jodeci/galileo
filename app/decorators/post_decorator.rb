@@ -19,7 +19,7 @@ module PostDecorator
 
   def cover_image_tag
     return unless cover_image
-    image_tag_by_id(cover_image)
+    image_tag ImageVariant.new(id: cover_image).large
   end
 
   def cover_image_url
@@ -41,9 +41,9 @@ module PostDecorator
 
   def cover_image_path
     if cover_image?
-      Image.fetch_url(cover_image)
+      url_for Image.fetch(cover_image).file
     else
-      asset_path(Settings.profile.image)
+      asset_path Settings.profile.image
     end
   end
 end

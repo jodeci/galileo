@@ -10,7 +10,7 @@ h1 = jr_simple_title
     - current_collection.each do |item|
       tr
         td = item.id
-        td.thumbs = image_tag item.file.thumb.url
+        td.thumbs = image_tag ImageVariant.new(image: item).thumb
         td = truncate item.caption
         td = safe_join((item.tag_list.map { |tag| link_to tag, dashboard_images_taglist_path(tag) }), ", ")
         td.actions

@@ -5,5 +5,5 @@
 = render "frontend/posts/title", post: @post
 = render "frontend/posts/meta", post: @post
 - if @post.cover_image?
-  .cover_image = image_tag_by_id(@post.cover_image, "large", class: "thumbnail")
+  .cover_image = image_tag ImageVariant.new(id: @post.cover_image).large, class: "thumbnail"
 = markdownify(@post.body)

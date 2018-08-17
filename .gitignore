@@ -17,6 +17,7 @@
 # Ignore uploads
 /public/uploads/
 /public/spec/support/
+/storage/
 
 # Ignore Byebug command history file.
 /.byebug_history

@@ -1,4 +1,4 @@
-div.image = image_tag current_object.file.large.url
+div.image = image_tag ImageVariant.new(image: current_object).large
 
 table.table
   = jr_row :caption
