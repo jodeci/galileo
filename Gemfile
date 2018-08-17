@@ -28,7 +28,7 @@ gem "meta-tags"
 gem "korgi"
 
 # tagging and urls
-gem "acts-as-taggable-on", "~> 4.0"
+gem "acts-as-taggable-on", "~> 5.0"
 gem "friendly_id", "~> 5.1.0"
 
 # markdown

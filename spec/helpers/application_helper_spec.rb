@@ -14,8 +14,8 @@ describe ApplicationHelper, type: :helper do
   end
 
   describe "#image_tag_by_id" do
-    it { expect(image_tag_by_id(0)).to eq %(<img src="/assets/no_image_medium.png" alt="No image medium" />) }
-    it { expect(image_tag_by_id(1, class: "myclass")).to eq %(<img class="myclass" src="#{store_dir_prefix}/image/file/1/medium_test.jpg" alt="Medium test" />) }
+    it { expect(image_tag_by_id(0)).to eq %(<img src="/assets/no_image_medium.png" />) }
+    it { expect(image_tag_by_id(1, class: "myclass")).to eq %(<img class="myclass" src="#{store_dir_prefix}/image/file/1/medium_test.jpg" />) }
   end
 
   describe "#foundation_icon" do
