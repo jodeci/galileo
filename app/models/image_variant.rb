@@ -2,12 +2,12 @@
 class ImageVariant
   attr_accessor :file
 
-  def initialize(id: nil, image: nil)
-    if image
-      @file = image.file
-    else
-      @file = Image.fetch(id).file
-    end
+  def initialize(file)
+    @file = file
+  end
+
+  def self.by_id(id)
+    self.new Image.fetch(id).file
   end
 
   def thumb

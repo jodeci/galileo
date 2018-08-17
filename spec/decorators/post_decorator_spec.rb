@@ -27,10 +27,6 @@ describe PostDecorator, type: :decorator do
     it { expect(decorated_draft.description).to eq I18n.t("misc.default_description") }
   end
 
-  describe "#cover_image_tag" do
-    it { expect(decorated_published.cover_image_tag).to eq %(<img src="#{store_dir_prefix}/image/file/1/medium_test.jpg" />) }
-  end
-
   describe "#cover_image_url" do
     it { expect(decorated_published.cover_image_url).to eq "http://test.host#{store_dir_prefix}/image/file/1/medium_test.jpg" }
     it { expect(decorated_draft.cover_image_url).to eq "http://test.host/assets/cover.jpg" }

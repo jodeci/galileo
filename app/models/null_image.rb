@@ -15,8 +15,25 @@ end
 
 class NullImageFile
   class << self
-    def url(size = "medium")
-      NullImage.asset_path(size)
+    def variant(options)
+      size = options.dig(:resize) || options.dig(:combine_options).dig(:resize)
+      case size
+      when "100x100^" then thumb
+      when "500x500" then medium
+      when "800x800" then large
+      end
+    end
+
+    def thumb
+      NullImage.asset_path("thumb")
+    end
+
+    def medium
+      NullImage.asset_path("medium")
+    end
+
+    def large
+      NullImage.asset_path("large")
     end
   end
 end

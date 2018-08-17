@@ -5,7 +5,7 @@
     - if post.published?
       - if post.cover_image?
         .cover_image class=("float-left" if post.abstract?)
-          = link_to image_tag(ImageVariant.new(id: post.cover_image).medium, class: "thumbnail"), post_path(post)
+          = link_to image_tag(ImageVariant.by_id(post.cover_image).medium, class: "thumbnail"), post_path(post)
       p.abstract
         = post.abstract_text
         = link_to foundation_icon("page"), post_path(post)

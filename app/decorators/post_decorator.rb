@@ -17,11 +17,6 @@ module PostDecorator
     abstract || I18n.t("misc.default_description")
   end
 
-  def cover_image_tag
-    return unless cover_image
-    image_tag ImageVariant.new(id: cover_image).large
-  end
-
   def cover_image_url
     request.protocol + request.host_with_port + cover_image_path
   end
