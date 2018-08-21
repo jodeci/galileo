@@ -2,7 +2,6 @@
 require "rails_helper"
 
 describe PostDecorator, type: :decorator do
-  before { FactoryBot.create(:image) }
   let(:published_post) { FactoryBot.create(:post, :published, :abstract) }
   let(:draft_post) { FactoryBot.create(:post, :draft) }
   let(:decorated_published) { ActiveDecorator::Decorator.instance.decorate(published_post) }
@@ -27,12 +26,7 @@ describe PostDecorator, type: :decorator do
     it { expect(decorated_draft.description).to eq I18n.t("misc.default_description") }
   end
 
-  describe "#cover_image_url" do
-    it { expect(decorated_published.cover_image_url).to eq "http://test.host#{store_dir_prefix}/image/file/1/medium_test.jpg" }
-    it { expect(decorated_draft.cover_image_url).to eq "http://test.host/assets/cover.jpg" }
-  end
-
   describe "#open_graph" do
-    it { expect(decorated_published.open_graph).to include(title: published_post.title, description: published_post.abstract, url: post_url(published_post.slug), image: published_post.cover_image_url) }
+    it { expect(decorated_draft.open_graph).to include(:title, :description, :url, :image) }
   end
 end

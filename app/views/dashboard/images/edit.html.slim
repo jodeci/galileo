@@ -1,4 +1,4 @@
 h1 = jr_simple_title
 = render "form"
-div.image = image_tag ImageVariant.new(current_object.file).large
+div.image = current_object.resized(:large)
 /p = exif_data current_object.exif

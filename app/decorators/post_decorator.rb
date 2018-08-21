@@ -17,10 +17,6 @@ module PostDecorator
     abstract || I18n.t("misc.default_description")
   end
 
-  def cover_image_url
-    request.protocol + request.host_with_port + cover_image_path
-  end
-
   def open_graph
     {
       title: title,
@@ -32,7 +28,33 @@ module PostDecorator
     }.compact
   end
 
+  def cover
+    return unless cover_image?
+    content_tag :div, class: "cover_image" do
+      resized_cover(:large)
+    end
+  end
+
+  def linked_cover
+    return unless cover_image?
+    content_tag :div, class: headline_cover_style do
+      link_to resized_cover(:medium), post_path(self)
+    end
+  end
+
+  def resized_cover(size)
+    image_tag ImageVariant.by_id(cover_image).send(size), class: "thumbnail"
+  end
+
   private
+
+  def cover_image_url
+    request.protocol + request.host_with_port + cover_image_path
+  end
+
+  def headline_cover_style
+    abstract? ? "cover_image float-left" : "cover_image"
+  end
 
   def cover_image_path
     if cover_image?

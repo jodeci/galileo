@@ -1,4 +1,4 @@
-div.image = image_tag ImageVariant.new(current_object.file).large
+div.image = current_object.resized(:large)
 
 table.table
   = jr_row :caption
