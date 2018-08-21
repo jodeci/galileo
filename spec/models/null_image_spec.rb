@@ -12,7 +12,9 @@ RSpec.describe NullImage, type: :model do
 end
 
 RSpec.describe NullImageFile, type: :model do
-  describe ".url" do
-    it { expect(NullImageFile.url("large")).to eq NullImage.asset_path("large") }
+  describe "variants" do
+    it { expect(NullImageFile.large).to eq NullImage.asset_path("large") }
+    it { expect(NullImageFile.medium).to eq NullImage.asset_path("medium") }
+    it { expect(NullImageFile.thumb).to eq NullImage.asset_path("thumb") }
   end
 end
