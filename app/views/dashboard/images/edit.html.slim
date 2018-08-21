@@ -1,4 +1,4 @@
 h1 = jr_simple_title
 = render "form"
 div.image = current_object.resized(:large)
-/p = exif_data current_object.exif
+p = current_object.exif_data

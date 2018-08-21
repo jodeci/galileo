@@ -2,5 +2,5 @@ div.image = current_object.resized(:large)
 
 table.table
   = jr_row :caption
-  = jr_row :exif, exif_data(current_object.exif)
+  = jr_row :exif, current_object.exif_data
   = jr_row :tag_list
