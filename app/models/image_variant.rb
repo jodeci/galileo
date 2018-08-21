@@ -22,10 +22,20 @@ class ImageVariant
   end
 
   def medium
-    file.variant(resize: "500x500")
+    file.variant(
+      combine_options: {
+        auto_orient: true,
+        resize: "500x500"
+      }
+    )
   end
 
   def large
-    file.variant(resize: "800x800")
+    file.variant(
+      combine_options: {
+        auto_orient: true,
+        resize: "800x800"
+      }
+    )
   end
 end

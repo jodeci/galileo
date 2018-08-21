@@ -16,8 +16,7 @@ end
 class NullImageFile
   class << self
     def variant(options)
-      size = options.dig(:resize) || options.dig(:combine_options).dig(:resize)
-      case size
+      case options.dig(:combine_options).dig(:resize)
       when "100x100^" then thumb
       when "500x500" then medium
       when "800x800" then large
