@@ -27,9 +27,7 @@ end
 
 RSpec.configure do |config|
   config.after(:all) do
-    if Rails.env.test?
-      FileUtils.rm_rf(Dir["#{Rails.root}/tmp/storage/*"])
-    end
+    FileUtils.rm_rf(Dir["#{Rails.root}/tmp/storage/*"]) if Rails.env.test?
   end
 
   # rspec-expectations config goes here. You can use an alternate

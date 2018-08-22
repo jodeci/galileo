@@ -25,7 +25,7 @@ class ImageVariant
     file.variant(
       combine_options: {
         auto_orient: true,
-        resize: "500x500"
+        resize: "500x500",
       }
     )
   end
@@ -34,7 +34,7 @@ class ImageVariant
     file.variant(
       combine_options: {
         auto_orient: true,
-        resize: "800x800"
+        resize: "800x800",
       }
     )
   end
