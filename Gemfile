@@ -42,7 +42,6 @@ gem "twemoji"
 gem "commonmarker"
 
 # image handling
-gem "carrierwave"
 gem "mini_magick"
 gem "exifr"
 

@@ -342,7 +342,6 @@ DEPENDENCIES
   bootstrap-sass
   bullet
   byebug
-  carrierwave
   codeclimate-test-reporter (~> 1.0.0)
   coffee-rails (~> 4.2)
   commonmarker
